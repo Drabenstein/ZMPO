@@ -1,41 +1,43 @@
 #include "pch.h"
 #include "CTable.h"
 #include <iostream>
-#include <exception>
 #include <string>
 #include <sstream>
+#include "MessageConstants.h"
 
-#define ZERO_TABLE
+const std::string CTable::DEFAULT_NAME = "Default";
+
+const int CTable::DEFAULT_TABLE_LENGTH = 10;
+
+const int CTable::DEFAULT_VALUE = 0;
 
 CTable::CTable()
 {
-	s_name = "default";
-	i_table_len = 10;
-	std::cout << "bezp: " << s_name << "\n";
+	s_name = DEFAULT_NAME;
+	i_table_len = DEFAULT_TABLE_LENGTH;
+	std::cout << MessageConstants::CTABLE_DEFAULT_CONSTRUCTOR_MSG << s_name << std::endl;
 	pi_table = new int[i_table_len];
-#ifdef ZERO_TABLE
-		for(int i = 0; i < i_table_len; i++)
-			pi_table[i] = 0;
-#endif
-} // CTable()
+
+	for(int i = 0; i < i_table_len; i++)
+	{
+		pi_table[i] = DEFAULT_VALUE;
+	} // for(int i = 0; i < i_table_len; i++)
+} // CTable::CTable()
 
 CTable::CTable(std::string sName, int iTableLen)
 {
 	s_name = sName;
 
-	/*if (iTableLen <= 0)
-		throw std::out_of_range("CTable: parameter iTableLen is <= 0 " + iTableLen);*/
-
 	if (iTableLen > 0)
 	{
 		i_table_len = iTableLen;
-		std::cout << "parametr: " << s_name << "\n";
+		std::cout << MessageConstants::CTABLE_PARAMETERED_CONSTRUCTOR_MSG << s_name << std::endl;
 		pi_table = new int[i_table_len];
 
-#ifdef ZERO_TABLE
 		for(int i = 0; i < i_table_len; i++)
-			pi_table[i] = 0;
-#endif
+		{
+			pi_table[i] = DEFAULT_VALUE;
+		}
 	}
 	else
 	{
@@ -46,24 +48,24 @@ CTable::CTable(std::string sName, int iTableLen)
 
 CTable::CTable(CTable & pcOther)
 {
-	s_name = pcOther.s_name + "_copy";
+	s_name = pcOther.s_name + MessageConstants::CTABLE_COPY_NAME_APPEND_TEXT;
 	i_table_len = pcOther.i_table_len;
-	std::cout << "kopiuj: " << s_name << "\n";
+	std::cout << MessageConstants::CTABLE_COPY_CONSTRUCTOR_MSG << s_name << std::endl;
 	pi_table = new int[i_table_len];
 	memcpy(pi_table, pcOther.pi_table, sizeof(int) * i_table_len);
-} // CTable(CTable & pcOther)
+} // CTable::CTable(CTable & pcOther)
 
 CTable::~CTable()
 {
-	std::cout << "usuwam: " << s_name << "\n";
+	std::cout << MessageConstants::CTABLE_DESTRUCTOR_MSG << s_name << std::endl;
 	i_table_len = 0;
 	delete[] pi_table;
-} // ~CTable()
+} // CTable::~CTable()
 
 void CTable::vSetName(std::string sName)
 {
 	s_name = sName;
-} // void vSetName(std::string sName)
+} // void CTable::vSetName(std::string sName)
 
 int CTable::iGetLength()
 {
@@ -95,13 +97,13 @@ bool CTable::bSetTableLength(int iTableLen)
 		for (int i = i_size; i < i_table_len; i++)
 		{
 			pi_table[i] = 0;
-		}
+		} // for (int i = i_size; i < i_table_len; i++)
 
 		b_is_success = true;
 	}
 
 	return b_is_success;
-} // bool bSetTableLength(int iTableLen)
+} // bool CTable::bSetTableLength(int iTableLen)
 
 bool CTable::bSetElement(int iOffset, int iElementValue)
 {
@@ -132,9 +134,11 @@ int CTable::iGetElement(int iOffset, bool * pbSuccess)
 	return i_result;
 } // int CTable::iGetElement(int iOffset, bool * pbSuccess)
 
-CTable* CTable::cClone()
+CTable* CTable::cClone(bool * pbIsSuccess)
 {
-	return new CTable(*this);
+	CTable * pc_table_clone = new CTable(s_name + MessageConstants::CTABLE_CLONE_NAME_APPEND_TEXT, i_table_len);
+	*pbIsSuccess = pc_table_clone->bCopyStateFrom(*this);
+	return *pbIsSuccess ? pc_table_clone : NULL;
 } // CTable CTable::cClone()
 
 bool CTable::bCopyStateFrom(CTable & pcAnother)
@@ -153,7 +157,8 @@ std::string CTable::sToString()
 	for (int i = 0; i < i_table_len - 1; i++)
 	{
 		c_result << pi_table[i] << ", ";
-	}
+	} // for (int i = 0; i < i_table_len - 1; i++)
+	
 	c_result << pi_table[i_table_len - 1];
 	return c_result.str();
 } // std::string CTable::sToString()

@@ -8,7 +8,7 @@ public:
 	CTable(std::string sName, int iTableLen);
 	CTable(CTable & pcOther);
 	
-	virtual ~CTable();
+	~CTable();
 	
 	void vSetName(std::string sName);
 
@@ -19,7 +19,7 @@ public:
 	bool bSetElement(int iOffset, int iElementValue);
 	int iGetElement(int iOffset, bool * pbSuccess);
 
-	CTable* cClone();
+	CTable* cClone(bool * pbIsSuccess);
 	bool bCopyStateFrom(CTable & pcAnother);
 
 	std::string sToString();
@@ -28,4 +28,8 @@ private:
 	std::string s_name;
 	int * pi_table;
 	int i_table_len;
+
+	static const std::string DEFAULT_NAME;
+	static const int DEFAULT_TABLE_LENGTH;
+	static const int DEFAULT_VALUE;
 };
