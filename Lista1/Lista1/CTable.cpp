@@ -15,7 +15,7 @@ CTable::CTable()
 {
 	s_name = DEFAULT_NAME;
 	i_table_len = DEFAULT_TABLE_LENGTH;
-	std::cout << MessageConstants::CTABLE_DEFAULT_CONSTRUCTOR_MSG << s_name << std::endl;
+	std::cout << MessageConstants::MSG_CTABLE_DEFAULT_CONSTRUCTOR << s_name << std::endl;
 	pi_table = new int[i_table_len];
 
 	for(int i = 0; i < i_table_len; i++)
@@ -31,7 +31,7 @@ CTable::CTable(std::string sName, int iTableLen)
 	if (iTableLen > 0)
 	{
 		i_table_len = iTableLen;
-		std::cout << MessageConstants::CTABLE_PARAMETERED_CONSTRUCTOR_MSG << s_name << std::endl;
+		std::cout << MessageConstants::MSG_CTABLE_PARAMETERED_CONSTRUCTOR << s_name << std::endl;
 		pi_table = new int[i_table_len];
 
 		for(int i = 0; i < i_table_len; i++)
@@ -44,20 +44,20 @@ CTable::CTable(std::string sName, int iTableLen)
 		i_table_len = 0;
 		pi_table = NULL;
 	}
-} // CTable(std::string sName, int iTableLen)\
+} // CTable::CTable(std::string sName, int iTableLen)\
 
 CTable::CTable(CTable & pcOther)
 {
 	s_name = pcOther.s_name + MessageConstants::CTABLE_COPY_NAME_APPEND_TEXT;
 	i_table_len = pcOther.i_table_len;
-	std::cout << MessageConstants::CTABLE_COPY_CONSTRUCTOR_MSG << s_name << std::endl;
+	std::cout << MessageConstants::MSG_CTABLE_COPY_CONSTRUCTOR << s_name << std::endl;
 	pi_table = new int[i_table_len];
 	memcpy(pi_table, pcOther.pi_table, sizeof(int) * i_table_len);
 } // CTable::CTable(CTable & pcOther)
 
 CTable::~CTable()
 {
-	std::cout << MessageConstants::CTABLE_DESTRUCTOR_MSG << s_name << std::endl;
+	std::cout << MessageConstants::MSG_CTABLE_DESTRUCTOR << s_name << std::endl;
 	i_table_len = 0;
 	delete[] pi_table;
 } // CTable::~CTable()
@@ -144,6 +144,7 @@ CTable* CTable::cClone(bool * pbIsSuccess)
 bool CTable::bCopyStateFrom(CTable & pcAnother)
 {
 	i_table_len = pcAnother.i_table_len;
+	delete pi_table;
 	pi_table = new int[i_table_len];
 	memcpy(pi_table, pcAnother.pi_table, sizeof(int) * i_table_len);
 	return true;
@@ -162,3 +163,15 @@ std::string CTable::sToString()
 	c_result << pi_table[i_table_len - 1];
 	return c_result.str();
 } // std::string CTable::sToString()
+
+int CTable::iSumValues()
+{
+	int i_sum = 0;
+
+	for(int i = 0; i < i_table_len; i++)
+	{
+		i_sum += pi_table[i];
+	} // for(int i = 0; i < i_table_len; i++)
+
+	return i_sum;
+} // int CTable::iSumValues()

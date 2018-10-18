@@ -3,71 +3,79 @@
 
 namespace MessageConstants
 {
-	extern const std::string WELCOME_MSG;
-	extern const std::string PROMPT_MSG;
+	extern const std::string MSG_WELCOME;
+	extern const std::string MSG_PROMPT;
 
-	extern const std::string CREATE_DEFAULT_CMD;
-	extern const std::string CREATE_PARAMETER_CMD;
-	extern const std::string CREATE_COPY_CMD;
-	extern const std::string CLONE_TABLE_CMD;
-	extern const std::string SET_VALUE_CMD;
-	extern const std::string GET_VALUE_CMD;
-	extern const std::string SET_NAME_CMD;
-	extern const std::string GET_NAME_CMD;
-	extern const std::string SET_LENGTH_CMD;
-	extern const std::string GET_LENGTH_CMD;
-	extern const std::string GET_INFO_CMD;
-	extern const std::string DELETE_CMD;
-	extern const std::string DELETE_ALL_CMD;
-	extern const std::string HELP_CMD;
-	extern const std::string EXIT_CMD;
+	extern const std::string CMD_CREATE_DEFAULT;
+	extern const std::string CMD_CREATE_PARAMETER;
+	extern const std::string CMD_CREATE_COPY;
+	extern const std::string CMD_CLONE_TABLE;
+	extern const std::string CMD_SET_VALUE;
+	extern const std::string CMD_GET_VALUE;
+	extern const std::string CMD_SET_NAME;
+	extern const std::string CMD_GET_NAME;
+	extern const std::string CMD_SET_LENGTH;
+	extern const std::string CMD_GET_LENGTH;
+	extern const std::string CMD_GET_INFO;
+	extern const std::string CMD_DELETE;
+	extern const std::string CMD_DELETE_ALL;
+	extern const std::string CMD_HELP;
+	extern const std::string CMD_EXIT;
 
-	extern const std::string DEFAULT_TABLE_CREATED_MSG;
-	extern const std::string PARAMETERED_TABLE_CREATED_MSG;
-	extern const std::string TABLE_COPY_CREATED_MSG;
-	extern const std::string TABLE_CLONED_MSG;
-	extern const std::string VALUE_CHANGED_MSG;
-	extern const std::string AT_INDEX_MSG;
-	extern const std::string VALUE_GET_MSG;
-	extern const std::string TABLE_NAME_CHANGED_MSG;
-	extern const std::string TABLE_NAME_MSG;
-	extern const std::string TABLE_LENGTH_CHANGED_MSG;
-	extern const std::string TABLE_LENGTH_MSG;
-	extern const std::string TABLE_DELETED_MSG;
-	extern const std::string DELETED_ALL_MSG;
-	extern const std::string UNKNOWN_CMD_MSG;
-	extern const std::string CLEAR_RESOURCES_MSG;
-	extern const std::string EXIT_MSG;
+	extern const std::string CMD_SUM_BY_VALUE;
+	extern const std::string CMD_SUM_BY_POINTER;
 
-	extern const std::string WRONG_PARAMETERS_COUNT_MSG;
-	extern const std::string WRONG_TABLE_SIZE_MSG;
-	extern const std::string INVALID_INDEX_MSG;
-	extern const std::string INVALID_VALUE_INDEX_MSG;
-	extern const std::string INVALID_VALUE_MSG;
-	extern const std::string INVALID_LENGTH_MSG;
-	extern const std::string OPERATION_FAILED_MSG;
+	extern const std::string MSG_DEFAULT_TABLE_CREATED;
+	extern const std::string MSG_PARAMETERED_TABLE_CREATED;
+	extern const std::string MSG_TABLE_COPY_CREATED;
+	extern const std::string MSG_TABLE_CLONED;
+	extern const std::string MSG_VALUE_CHANGED;
+	extern const std::string MSG_AT_INDEX;
+	extern const std::string MSG_VALUE_GET;
+	extern const std::string MSG_TABLE_NAME_CHANGED;
+	extern const std::string MSG_TABLE_NAME;
+	extern const std::string MSG_TABLE_LENGTH_CHANGED;
+	extern const std::string MSG_TABLE_LENGTH;
+	extern const std::string MSG_TABLE_DELETED;
+	extern const std::string MSG_DELETED_ALL;
+	extern const std::string MSG_UNKNOWN_CMD;
+	extern const std::string MSG_CLEAR_RESOURCES;
+	extern const std::string MSG_EXIT;
 
-	extern const std::string CTABLE_DESTRUCTOR_MSG;
-	extern const std::string CTABLE_DEFAULT_CONSTRUCTOR_MSG;
-	extern const std::string CTABLE_PARAMETERED_CONSTRUCTOR_MSG;
-	extern const std::string CTABLE_COPY_CONSTRUCTOR_MSG;
+	extern const std::string MSG_SUM;
+
+	extern const std::string ERR_MSG_WRONG_PARAMETERS_COUNT;
+	extern const std::string ERR_MSG_WRONG_TABLE_SIZE;
+	extern const std::string ERR_MSG_INVALID_INDEX;
+	extern const std::string ERR_MSG_INVALID_VALUE_INDEX;
+	extern const std::string ERR_MSG_INVALID_VALUE;
+	extern const std::string ERR_MSG_INVALID_LENGTH;
+	extern const std::string ERR_MSG_OPERATION_FAILED;
+
+	extern const std::string MSG_CTABLE_DESTRUCTOR;
+	extern const std::string MSG_CTABLE_DEFAULT_CONSTRUCTOR;
+	extern const std::string MSG_CTABLE_PARAMETERED_CONSTRUCTOR;
+	extern const std::string MSG_CTABLE_COPY_CONSTRUCTOR;
 	extern const std::string CTABLE_COPY_NAME_APPEND_TEXT;
 	extern const std::string CTABLE_CLONE_NAME_APPEND_TEXT;
 
-	extern const std::string CREATE_DEFAULT_CMD_HELP_MSG;
-	extern const std::string CREATE_DEFAULT_CMD_HELP_MSG;
-	extern const std::string CREATE_PARAMETER_CMD_HELP_MSG;
-	extern const std::string CREATE_COPY_CMD_HELP_MSG;
-	extern const std::string CLONE_TABLE_CMD_HELP_MSG;
-	extern const std::string SET_VALUE_CMD_HELP_MSG;
-	extern const std::string GET_VALUE_CMD_HELP_MSG;
-	extern const std::string SET_NAME_CMD_HELP_MSG;
-	extern const std::string GET_NAME_CMD_HELP_MSG;
-	extern const std::string SET_LENGTH_CMD_HELP_MSG;
-	extern const std::string GET_LENGTH_CMD_HELP_MSG;
-	extern const std::string GET_INFO_CMD_HELP_MSG;
-	extern const std::string DELETE_CMD_HELP_MSG;
-	extern const std::string DELETE_ALL_CMD_HELP_MSG;
-	extern const std::string HELP_CMD_HELP_MSG;
-	extern const std::string EXIT_CMD_HELP_MSG;
+	extern const std::string HELP_MSG_CREATE_DEFAULT_CMD;
+	extern const std::string HELP_MSG_CREATE_PARAMETER_CMD;
+	extern const std::string HELP_MSG_CREATE_COPY_CMD;
+	extern const std::string HELP_MSG_CLONE_TABLE_CMD;
+	extern const std::string HELP_MSG_SET_VALUE_CMD;
+	extern const std::string HELP_MSG_GET_VALUE_CMD;
+	extern const std::string HELP_MSG_SET_NAME_CMD;
+	extern const std::string HELP_MSG_GET_NAME_CMD;
+	extern const std::string HELP_MSG_SET_LENGTH_CMD;
+	extern const std::string HELP_MSG_GET_LENGTH_CMD;
+	extern const std::string HELP_MSG_GET_INFO_CMD;
+	extern const std::string HELP_MSG_DELETE_CMD;
+	extern const std::string HELP_MSG_DELETE_ALL_CMD;
+
+	extern const std::string HELP_MSG_SUM_BY_VALUE_CMD;
+	extern const std::string HELP_MSG_SUM_BY_POINTER_CMD;
+
+	extern const std::string HELP_MSG_HELP_CMD;
+	extern const std::string HELP_MSG_EXIT_CMD;
 }

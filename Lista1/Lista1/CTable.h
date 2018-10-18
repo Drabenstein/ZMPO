@@ -24,12 +24,14 @@ public:
 
 	std::string sToString();
 
-private:
-	std::string s_name;
-	int * pi_table;
-	int i_table_len;
+	int iSumValues();
 
 	static const std::string DEFAULT_NAME;
 	static const int DEFAULT_TABLE_LENGTH;
 	static const int DEFAULT_VALUE;
+
+private:
+	std::string s_name;
+	int * pi_table;
+	int i_table_len;
 };
