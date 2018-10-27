@@ -5,7 +5,7 @@
 class CMenu : public CMenuItem
 {
 private:
-	std::vector<CMenuItem*>* pv_menu_items;
+	std::vector<CMenuItem*> v_menu_items;
 
 public:
 	CMenu(std::string sName, std::string sCommand, bool * bSuccess);

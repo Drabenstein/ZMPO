@@ -7,18 +7,16 @@
 
 CMenu::CMenu(std::string sName, std::string sCommand, bool * bSuccess) : CMenuItem(sName, sCommand, bSuccess)
 {
-	pv_menu_items = new std::vector<CMenuItem*>();
 } // CMenu::CMenu(std::string sName, std::string sCommand, bool * bSuccess) : CMenuItem(sName, sCommand, bSuccess)
 
 CMenu::~CMenu()
 {
-	for(int i = 0; i < pv_menu_items->size(); i++)
+	for(int i = 0; i < v_menu_items.size(); i++)
 	{
-		delete pv_menu_items->at(i);
+		delete v_menu_items.at(i);
 	}
 
-	pv_menu_items->clear();
-	delete pv_menu_items;
+	v_menu_items.clear();
 } // CMenu::~CMenu()
 
 void CMenu::vRun()
@@ -30,10 +28,10 @@ void CMenu::vRun()
 		std::cout << MenuConstants::MSG_MENU_SEPARATOR << std::endl << 
 			sGetMenuHeader() << std::endl << MenuConstants::MSG_MENU_SEPARATOR << std::endl;
 
-		for (int i = 0; i < pv_menu_items->size(); i++)
+		for (int i = 0; i < v_menu_items.size(); i++)
 		{
-			std::cout << i + 1 << MenuConstants::MSG_CMD_NUM_SEPARATOR << pv_menu_items->at(i)->sToString() << std::endl;
-		} // for(int i = 0; i < pv_menu_items.size(); i++)
+			std::cout << i + 1 << MenuConstants::MSG_CMD_NUM_SEPARATOR << v_menu_items.at(i)->sToString() << std::endl;
+		} // for(int i = 0; i < v_menu_items.size(); i++)
 
 		std::cout << MenuConstants::MSG_MENU_SEPARATOR << std::endl << std::endl;
 
@@ -44,13 +42,13 @@ void CMenu::vRun()
 
 		CMenuItem* pc_selected_item = nullptr;
 
-		for(int i = 0; i < pv_menu_items->size(); i++)
+		for(int i = 0; i < v_menu_items.size(); i++)
 		{
-			if(s_user_command == pv_menu_items->at(i)->sGetCommand())
+			if(s_user_command == v_menu_items.at(i)->sGetCommand())
 			{
-				pc_selected_item = pv_menu_items->at(i);
+				pc_selected_item = v_menu_items.at(i);
 			}
-		} // for(int i = 0; i < pv_menu_items.size(); i++)
+		} // for(int i = 0; i < v_menu_items.size(); i++)
 
 		if(s_user_command == MenuConstants::CMD_BACK)
 		{
@@ -84,18 +82,18 @@ bool CMenu::bAddMenuItem(CMenuItem * pcMenuItem)
 	{
 		bool b_is_duplicate = false;
 
-		for (int i = 0; i < pv_menu_items->size() && !b_is_duplicate; i++)
+		for (int i = 0; i < v_menu_items.size() && !b_is_duplicate; i++)
 		{
-			CMenuItem* pc_current_item = pv_menu_items->at(i);
+			CMenuItem* pc_current_item = v_menu_items.at(i);
 			if (pcMenuItem->sGetCommand() == pc_current_item->sGetCommand())
 			{
 				b_is_duplicate = true;
 			}
-		} // for(int i = 0; i < pv_menu_items.size() && !b_is_duplicate; i++)
+		} // for(int i = 0; i < v_menu_items.size() && !b_is_duplicate; i++)
 
 		if (!b_is_duplicate)
 		{
-			pv_menu_items->push_back(pcMenuItem);
+			v_menu_items.push_back(pcMenuItem);
 			b_is_succces = true;
 		}
 	}
@@ -105,17 +103,17 @@ bool CMenu::bAddMenuItem(CMenuItem * pcMenuItem)
 
 const std::vector<CMenuItem*>& CMenu::pvGetMenuItems()
 {
-	return *pv_menu_items;
+	return v_menu_items;
 } // const std::vector<CMenuItem*>& CMenu::pvGetMenuItems()
 
 bool CMenu::bRemoveMenuItem(int iOffset)
 {
 	bool b_success = false;
 
-	if(iOffset >= 0 && iOffset < pv_menu_items->size())
+	if(iOffset >= 0 && iOffset < v_menu_items.size())
 	{
-		delete pv_menu_items->at(iOffset);
-		pv_menu_items->erase(pv_menu_items->begin() + iOffset);
+		delete v_menu_items.at(iOffset);
+		v_menu_items.erase(v_menu_items.begin() + iOffset);
 		b_success = true;
 	}
 
