@@ -1,0 +1,25 @@
+#pragma once
+#include "CMenuItem.h"
+#include "CCommand.h"
+
+class CMenuCommand : public CMenuItem
+{
+public:
+	CMenuCommand(std::string sName, std::string sCommand, bool* bSuccess);
+	CMenuCommand(std::string sName, std::string sCommand, CCommand* pcCommand, bool * bSuccess);
+
+	virtual ~CMenuCommand();
+
+	void vRun() override;
+
+	bool bSetCCommand(CCommand* pcCommand);
+	const CCommand* pcGetCCommand();
+
+	virtual std::string sToString() override;
+	virtual std::string sGetCommand() override;
+	virtual std::string sGetName() override;
+	virtual bool bSetName(std::string sName) override;
+	virtual bool bSetCommand(std::string sCommand) override;
+private:
+	CCommand* pc_command;
+};

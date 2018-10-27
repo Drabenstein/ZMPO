@@ -1,0 +1,48 @@
+#include "pch.h"
+#include "CSetTableLengthCommand.h"
+#include "CTableConstants.h"
+#include "CConsoleInputHelper.h"
+#include <sstream>
+
+CSetTableLengthCommand::CSetTableLengthCommand(std::vector<CTable*>* pvTables)
+{
+	pv_tables = pvTables;
+}
+
+bool CSetTableLengthCommand::bRunCommand(std::string * psResponseMsg)
+{
+	bool b_success = false;
+
+	if(pv_tables != nullptr)
+	{
+		CConsoleInputHelper c_input_helper;
+		int i_table_index;
+		if(c_input_helper.bReadTableIndex(&i_table_index) && i_table_index >= 0
+			&& i_table_index < pv_tables->size())
+		{
+			CTable* pc_selected_table = pv_tables->at(i_table_index);
+			int i_new_length;
+			if(c_input_helper.bReadTableLength(&i_new_length))
+			{
+				b_success = pc_selected_table->bSetTableLength(i_new_length);
+				std::stringstream c_output;
+				c_output << CTableConstants::MSG_TABLE_LENGTH_CHANGED << i_new_length;
+				vSetResponse(psResponseMsg, c_output.str());
+			}
+			else
+			{
+				vSetResponse(psResponseMsg, CTableConstants::ERR_MSG_INVALID_LENGTH);
+			}
+		}
+		else
+		{
+			vSetResponse(psResponseMsg, CTableConstants::ERR_MSG_INVALID_INDEX);
+		}
+	}
+	else
+	{
+		vSetResponse(psResponseMsg, CTableConstants::ERR_MSG_TABLES_VECTOR_UNINITIALIZED);
+	}
+
+	return b_success;
+}
