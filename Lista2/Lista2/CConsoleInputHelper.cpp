@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "CConsoleInputHelper.h"
 #include <iostream>
-#include "CTableConstants.h"
+#include "MessageConstants.h"
 
 const CConsoleInputHelper & CConsoleInputHelper::rcGetInstance()
 {
@@ -11,25 +11,25 @@ const CConsoleInputHelper & CConsoleInputHelper::rcGetInstance()
 
 bool CConsoleInputHelper::bReadTableIndex(int * piTableIndex) const
 {
-	std::cout << CTableConstants::MSG_INPUT_TABLE_INDEX << std::endl;
+	std::cout << MessageConstants::MSG_INPUT_TABLE_INDEX << std::endl;
 	return b_readTableIndex(piTableIndex) && piTableIndex >= NULL;
 }
 
 bool CConsoleInputHelper::bReadValueIndex(int * piValueIndex) const
 {
-	std::cout << CTableConstants::MSG_INPUT_VALUE_INDEX << std::endl;
+	std::cout << MessageConstants::MSG_INPUT_VALUE_INDEX << std::endl;
 	return b_readTableIndex(piValueIndex) && piValueIndex >= NULL;
 }
 
 bool CConsoleInputHelper::bReadTableLength(int * piTableLength) const
 {
-	std::cout << CTableConstants::MSG_INPUT_TABLE_LENGTH << std::endl;
+	std::cout << MessageConstants::MSG_INPUT_TABLE_LENGTH << std::endl;
 	return b_readTableIndex(piTableLength) && piTableLength > NULL;
 }
 
 bool CConsoleInputHelper::bReadValue(int * piValue) const
 {
-	std::cout << CTableConstants::MSG_INPUT_VALUE << std::endl;
+	std::cout << MessageConstants::MSG_INPUT_VALUE << std::endl;
 	return b_readTableIndex(piValue);
 }
 

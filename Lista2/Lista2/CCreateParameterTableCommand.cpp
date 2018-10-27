@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "CCreateParameterTableCommand.h"
 #include <iostream>
-#include "CTableConstants.h"
+#include "MessageConstants.h"
 #include "CConsoleInputHelper.h"
 #include <sstream>
 
@@ -16,7 +16,7 @@ bool CCreateParameterTableCommand::bRunCommand(std::string * psResponseMsg)
 
 	if(pv_tables != nullptr)
 	{
-		std::cout << CTableConstants::MSG_INPUT_TABLE_NAME << std::endl;
+		std::cout << MessageConstants::MSG_INPUT_TABLE_NAME << std::endl;
 		std::string s_name;
 		std::getline(std::cin, s_name);
 		
@@ -29,17 +29,17 @@ bool CCreateParameterTableCommand::bRunCommand(std::string * psResponseMsg)
 			pv_tables->push_back(pc_parametered_table);
 			b_success = true;
 			std::stringstream c_output;
-			c_output << CTableConstants::MSG_TABLE_PARAMETERED_CREATED << pv_tables->size() - 1;
+			c_output << MessageConstants::MSG_TABLE_PARAMETERED_CREATED << pv_tables->size() - 1;
 			vSetResponse(psResponseMsg, c_output.str());
 		}
 		else
 		{
-			vSetResponse(psResponseMsg, CTableConstants::ERR_MSG_INVALID_LENGTH);
+			vSetResponse(psResponseMsg, MessageConstants::ERR_MSG_INVALID_LENGTH);
 		}
 	}
 	else
 	{
-		vSetResponse(psResponseMsg, CTableConstants::ERR_MSG_TABLES_VECTOR_UNINITIALIZED);
+		vSetResponse(psResponseMsg, MessageConstants::ERR_MSG_TABLES_VECTOR_UNINITIALIZED);
 	}
 
 	return b_success;

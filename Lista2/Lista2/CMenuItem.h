@@ -24,8 +24,4 @@ protected:
 
 	std::string s_command;
 	std::string s_name;
-
-private:
-	CMenuItem(CMenuItem& pcAnother);
-	void operator= (CMenuItem const& pcAnother);
 };

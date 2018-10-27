@@ -1,6 +1,6 @@
 ﻿#include "pch.h"
 #include "CSetValueCommand.h"
-#include "CTableConstants.h"
+#include "MessageConstants.h"
 #include "CConsoleInputHelper.h"
 #include <sstream>
 
@@ -29,28 +29,28 @@ bool CSetValueCommand::bRunCommand(std::string * psResponseMsg)
 				{
 					b_success = pc_selected_table->bSetElement(i_value_index, i_new_value);
 					std::stringstream c_output;
-					c_output << CTableConstants::MSG_VALUE_CHANGED << i_new_value 
-						<< CTableConstants::MSG_AT_INDEX << pv_tables->size() - 1;
+					c_output << MessageConstants::MSG_VALUE_CHANGED << i_new_value 
+						<< MessageConstants::MSG_AT_INDEX << pv_tables->size() - 1;
 					vSetResponse(psResponseMsg, c_output.str());
 				}
 				else
 				{
-					vSetResponse(psResponseMsg, CTableConstants::ERR_MSG_INVALID_VALUE);
+					vSetResponse(psResponseMsg, MessageConstants::ERR_MSG_INVALID_VALUE);
 				}
 			}
 			else
 			{
-				vSetResponse(psResponseMsg, CTableConstants::ERR_MSG_INVALID_VALUE_INDEX);
+				vSetResponse(psResponseMsg, MessageConstants::ERR_MSG_INVALID_VALUE_INDEX);
 			}
 		}
 		else
 		{
-			vSetResponse(psResponseMsg, CTableConstants::ERR_MSG_INVALID_INDEX);
+			vSetResponse(psResponseMsg, MessageConstants::ERR_MSG_INVALID_INDEX);
 		}
 	}
 	else
 	{
-		vSetResponse(psResponseMsg, CTableConstants::ERR_MSG_TABLES_VECTOR_UNINITIALIZED);
+		vSetResponse(psResponseMsg, MessageConstants::ERR_MSG_TABLES_VECTOR_UNINITIALIZED);
 	}
 
 	return b_success;

@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "CGetValueCommand.h"
-#include "CTableConstants.h"
+#include "MessageConstants.h"
 #include "CConsoleInputHelper.h"
 #include <iostream>
 #include <sstream>
@@ -27,22 +27,22 @@ bool CGetValueCommand::bRunCommand(std::string * psResponseMsg)
 				&& i_value_index < pc_selected_table->iGetLength())
 			{
 				std::stringstream c_output;
-				c_output << CTableConstants::MSG_VALUE_GET << pc_selected_table->iGetElement(i_value_index, &b_success);
+				c_output << MessageConstants::MSG_VALUE_GET << pc_selected_table->iGetElement(i_value_index, &b_success);
 				vSetResponse(psResponseMsg, c_output.str());
 			}
 			else
 			{
-				vSetResponse(psResponseMsg, CTableConstants::ERR_MSG_INVALID_INDEX);
+				vSetResponse(psResponseMsg, MessageConstants::ERR_MSG_INVALID_INDEX);
 			}
 		}
 		else
 		{
-			vSetResponse(psResponseMsg, CTableConstants::ERR_MSG_INVALID_INDEX);
+			vSetResponse(psResponseMsg, MessageConstants::ERR_MSG_INVALID_INDEX);
 		}
 	}
 	else
 	{
-		vSetResponse(psResponseMsg, CTableConstants::ERR_MSG_TABLES_VECTOR_UNINITIALIZED);
+		vSetResponse(psResponseMsg, MessageConstants::ERR_MSG_TABLES_VECTOR_UNINITIALIZED);
 	}
 
 	return  b_success;

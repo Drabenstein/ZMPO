@@ -1,32 +1,35 @@
 #include "pch.h"
-#include "CCreateCopyTableCommand.h"
-#include "CConsoleInputHelper.h"
+#include "CSetTableNameCommand.h"
 #include "MessageConstants.h"
+#include "CConsoleInputHelper.h"
+#include <iostream>
 #include <sstream>
 
-CCreateCopyTableCommand::CCreateCopyTableCommand(std::vector<CTable*>* pvTables)
+CSetTableNameCommand::CSetTableNameCommand(std::vector<CTable*>* pvTables)
 {
 	pv_tables = pvTables;
 }
 
-bool CCreateCopyTableCommand::bRunCommand(std::string * psResponseMsg)
+bool CSetTableNameCommand::bRunCommand(std::string * psResponseMsg)
 {
 	bool b_success = false;
 
 	if(pv_tables != nullptr)
 	{
-		int i_table_index;
 		CConsoleInputHelper c_input_helper;
+		int i_table_index;
 		if(c_input_helper.bReadTableIndex(&i_table_index) && i_table_index < pv_tables->size())
 		{
-			CTable* pc_table_copy = new CTable(*(pv_tables->at(i_table_index)));
-			pv_tables->push_back(pc_table_copy);
+			std::cout << MessageConstants::MSG_INPUT_TABLE_NAME << std::endl;
+			std::string s_new_table_name;
+			std::getline(std::cin, s_new_table_name);
+			pv_tables->at(i_table_index)->vSetName(s_new_table_name);
 			b_success = true;
 			std::stringstream c_output;
-			c_output << MessageConstants::MSG_TABLE_COPY_CREATED << pv_tables->size() - 1;
+			c_output << MessageConstants::MSG_TABLE_NAME_CHANGED << s_new_table_name;
 			vSetResponse(psResponseMsg, c_output.str());
 		}
-		else 
+		else
 		{
 			vSetResponse(psResponseMsg, MessageConstants::ERR_MSG_INVALID_INDEX);
 		}

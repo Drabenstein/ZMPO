@@ -4,6 +4,9 @@
 
 class CMenu : public CMenuItem
 {
+private:
+	std::vector<CMenuItem*>* pv_menu_items;
+
 public:
 	CMenu(std::string sName, std::string sCommand, bool * bSuccess);
 
@@ -23,7 +26,4 @@ public:
 	bool bRemoveMenuItem(int iOffset);
 
 	std::string sGetMenuHeader();
-
-private:
-	std::vector<CMenuItem*>* pv_menu_items;
 };

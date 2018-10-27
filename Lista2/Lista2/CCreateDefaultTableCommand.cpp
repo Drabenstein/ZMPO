@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "CCreateDefaultTableCommand.h"
-#include "CTableConstants.h"
+#include "MessageConstants.h"
 #include <sstream>
 
 CCreateDefaultTableCommand::CCreateDefaultTableCommand(std::vector<CTable*>* pvTables)
@@ -18,12 +18,12 @@ bool CCreateDefaultTableCommand::bRunCommand(std::string * psResponseMsg)
 		pv_tables->push_back(pc_default_table);
 		b_success = true;
 		std::stringstream c_output;
-		c_output << CTableConstants::MSG_DEFAULT_TABLE_CREATED << pv_tables->size() - 1;
+		c_output << MessageConstants::MSG_DEFAULT_TABLE_CREATED << pv_tables->size() - 1;
 		vSetResponse(psResponseMsg , c_output.str());
 	}
 	else
 	{
-		vSetResponse(psResponseMsg, CTableConstants::ERR_MSG_TABLES_VECTOR_UNINITIALIZED);
+		vSetResponse(psResponseMsg, MessageConstants::ERR_MSG_TABLES_VECTOR_UNINITIALIZED);
 	}
 
 	return b_success;

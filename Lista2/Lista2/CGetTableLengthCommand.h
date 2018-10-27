@@ -5,11 +5,11 @@
 
 class CGetTableLengthCommand : public CCommand
 {
+private:
+	std::vector<CTable*>* pv_tables;
+
 public:
 	CGetTableLengthCommand(std::vector<CTable*>* pvTables);
 
 	bool bRunCommand(std::string* psResponseMsg) override;
-
-private:
-	std::vector<CTable*>* pv_tables;
 };

@@ -5,11 +5,11 @@
 
 class CSetValueCommand : public CCommand
 {
+private:
+	std::vector<CTable*>* pv_tables;
+
 public:
 	CSetValueCommand(std::vector<CTable*>* pvTables);
 
 	bool bRunCommand(std::string* psResponseMsg) override;
-
-private:
-	std::vector<CTable*>* pv_tables;
 };

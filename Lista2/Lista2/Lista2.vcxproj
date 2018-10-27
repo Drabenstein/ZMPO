@@ -151,10 +151,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CCloneTableCommand.h" />
     <ClInclude Include="CCommand.h" />
     <ClInclude Include="CCreateCopyTableCommand.h" />
     <ClInclude Include="CCreateDefaultTableCommand.h" />
     <ClInclude Include="CCreateParameterTableCommand.h" />
+    <ClInclude Include="CDeleteAllTablesCommand.h" />
+    <ClInclude Include="CDeleteTableCommand.h" />
+    <ClInclude Include="CGetTableInfoCommand.h" />
+    <ClInclude Include="CGetTableNameCommand.h" />
     <ClInclude Include="CGetTableLengthCommand.h" />
     <ClInclude Include="CGetValueCommand.h" />
     <ClInclude Include="CMenu.h" />
@@ -162,27 +167,34 @@
     <ClInclude Include="CMenuItem.h" />
     <ClInclude Include="CConsoleInputHelper.h" />
     <ClInclude Include="CSetTableLengthCommand.h" />
+    <ClInclude Include="CSetTableNameCommand.h" />
     <ClInclude Include="CSetValueCommand.h" />
     <ClInclude Include="CTable.h" />
-    <ClInclude Include="CTableConstants.h" />
+    <ClInclude Include="MessageConstants.h" />
     <ClInclude Include="MenuConstants.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CCloneTableCommand.cpp" />
     <ClCompile Include="CCommand.cpp" />
     <ClCompile Include="CConsoleInputHelper.cpp" />
     <ClCompile Include="CCreateCopyTableCommand.cpp" />
     <ClCompile Include="CCreateDefaultTableCommand.cpp" />
     <ClCompile Include="CCreateParameterTableCommand.cpp" />
+    <ClCompile Include="CDeleteAllTablesCommand.cpp" />
+    <ClCompile Include="CDeleteTableCommand.cpp" />
+    <ClCompile Include="CGetTableInfoCommand.cpp" />
+    <ClCompile Include="CGetTableNameCommand.cpp" />
     <ClCompile Include="CGetTableLengthCommand.cpp" />
     <ClCompile Include="CGetValueCommand.cpp" />
     <ClCompile Include="CMenu.cpp" />
     <ClCompile Include="CMenuCommand.cpp" />
     <ClCompile Include="CMenuItem.cpp" />
     <ClCompile Include="CSetTableLengthCommand.cpp" />
+    <ClCompile Include="CSetTableNameCommand.cpp" />
     <ClCompile Include="CSetValueCommand.cpp" />
     <ClCompile Include="CTable.cpp" />
-    <ClCompile Include="CTableConstants.cpp" />
+    <ClCompile Include="MessageConstants.cpp" />
     <ClCompile Include="Lista2.cpp" />
     <ClCompile Include="MenuConstants.cpp" />
     <ClCompile Include="pch.cpp">

@@ -5,11 +5,11 @@
 
 class CCreateCopyTableCommand : public CCommand
 {
-	public:
+private:
+	std::vector<CTable*>* pv_tables;
+
+public:
 	CCreateCopyTableCommand(std::vector<CTable*>* pvTables);
 
 	bool bRunCommand(std::string * psResponseMsg) override;
-
-private:
-	std::vector<CTable*>* pv_tables;
 };

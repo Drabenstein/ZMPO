@@ -1,27 +1,29 @@
 #include "pch.h"
-#include "CGetTableLengthCommand.h"
+#include "CCloneTableCommand.h"
 #include "MessageConstants.h"
 #include "CConsoleInputHelper.h"
 #include <sstream>
 
-CGetTableLengthCommand::CGetTableLengthCommand(std::vector<CTable*>* pvTables)
+CCloneTableCommand::CCloneTableCommand(std::vector<CTable*>* pvTables)
 {
 	pv_tables = pvTables;
 }
 
-bool CGetTableLengthCommand::bRunCommand(std::string * psResponseMsg)
+bool CCloneTableCommand::bRunCommand(std::string * psResponseMsg)
 {
 	bool b_success = false;
 
 	if(pv_tables != nullptr)
 	{
-		int i_table_index;
 		CConsoleInputHelper c_input_helper;
-		if(c_input_helper.bReadTableIndex(&i_table_index)	&& i_table_index < pv_tables->size())
+		int i_table_index;
+		if(c_input_helper.bReadTableIndex(&i_table_index) 
+			&& i_table_index < pv_tables->size())
 		{
-			b_success = true;
+			CTable* pc_cloned_table = pv_tables->at(i_table_index)->cClone(&b_success);
+			pv_tables->push_back(pc_cloned_table);
 			std::stringstream c_output;
-			c_output << MessageConstants::MSG_TABLE_LENGTH << pv_tables->at(i_table_index)->iGetLength();
+			c_output << MessageConstants::MSG_TABLE_CLONED << pv_tables->size() - 1;
 			vSetResponse(psResponseMsg, c_output.str());
 		}
 		else

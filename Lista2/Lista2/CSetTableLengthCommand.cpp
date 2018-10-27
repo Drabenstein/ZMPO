@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "CSetTableLengthCommand.h"
-#include "CTableConstants.h"
+#include "MessageConstants.h"
 #include "CConsoleInputHelper.h"
 #include <sstream>
 
@@ -26,22 +26,22 @@ bool CSetTableLengthCommand::bRunCommand(std::string * psResponseMsg)
 			{
 				b_success = pc_selected_table->bSetTableLength(i_new_length);
 				std::stringstream c_output;
-				c_output << CTableConstants::MSG_TABLE_LENGTH_CHANGED << i_new_length;
+				c_output << MessageConstants::MSG_TABLE_LENGTH_CHANGED << i_new_length;
 				vSetResponse(psResponseMsg, c_output.str());
 			}
 			else
 			{
-				vSetResponse(psResponseMsg, CTableConstants::ERR_MSG_INVALID_LENGTH);
+				vSetResponse(psResponseMsg, MessageConstants::ERR_MSG_INVALID_LENGTH);
 			}
 		}
 		else
 		{
-			vSetResponse(psResponseMsg, CTableConstants::ERR_MSG_INVALID_INDEX);
+			vSetResponse(psResponseMsg, MessageConstants::ERR_MSG_INVALID_INDEX);
 		}
 	}
 	else
 	{
-		vSetResponse(psResponseMsg, CTableConstants::ERR_MSG_TABLES_VECTOR_UNINITIALIZED);
+		vSetResponse(psResponseMsg, MessageConstants::ERR_MSG_TABLES_VECTOR_UNINITIALIZED);
 	}
 
 	return b_success;

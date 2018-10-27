@@ -3,13 +3,13 @@
 #include <vector>
 #include "CTable.h"
 
-class CSetTableLengthCommand : public CCommand
+class CSetTableNameCommand : public CCommand
 {
 private:
 	std::vector<CTable*>* pv_tables;
 
 public:
-	CSetTableLengthCommand(std::vector<CTable*>* pvTables);
+	CSetTableNameCommand(std::vector<CTable*>* pvTables);
 
 	bool bRunCommand(std::string* psResponseMsg) override;
 };

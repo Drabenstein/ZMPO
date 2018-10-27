@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-namespace CTableConstants
+namespace MessageConstants
 {
 	extern const std::string MSG_INPUT_TABLE_INDEX;
 	extern const std::string MSG_INPUT_VALUE_INDEX;
@@ -34,9 +34,6 @@ namespace CTableConstants
 	extern const std::string ERR_MSG_OPERATION_FAILED;
 	extern const std::string ERR_MSG_TABLES_VECTOR_UNINITIALIZED;
 
-	extern const std::string CTABLE_DEFAULT_NAME;
-	extern const int CTABLE_DEFAULT_TABLE_LENGTH;
-	extern const int CTABLE_DEFAULT_TABLE_VALUE;
 	extern const std::string MSG_CTABLE_DESTRUCTOR;
 	extern const std::string MSG_CTABLE_DEFAULT_CONSTRUCTOR;
 	extern const std::string MSG_CTABLE_PARAMETERED_CONSTRUCTOR;

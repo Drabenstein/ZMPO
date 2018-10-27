@@ -1,20 +1,20 @@
 #include "pch.h"
 #include "CTable.h"
-#include "CTableConstants.h"
+#include "MessageConstants.h"
 #include <iostream>
 #include <sstream>
 
-const std::string CTable::DEFAULT_NAME = CTableConstants::CTABLE_DEFAULT_NAME;
+const std::string CTable::DEFAULT_NAME = "Default";
 
-const int CTable::DEFAULT_TABLE_LENGTH = CTableConstants::CTABLE_DEFAULT_TABLE_LENGTH;
+const int CTable::DEFAULT_TABLE_LENGTH = 10;
 
-const int CTable::DEFAULT_VALUE = CTableConstants::CTABLE_DEFAULT_TABLE_VALUE;
+const int CTable::DEFAULT_VALUE = 0;
 
 CTable::CTable()
 {
 	s_name = DEFAULT_NAME;
 	i_table_len = DEFAULT_TABLE_LENGTH;
-	std::cout << CTableConstants::MSG_CTABLE_DEFAULT_CONSTRUCTOR << s_name << std::endl;
+	std::cout << MessageConstants::MSG_CTABLE_DEFAULT_CONSTRUCTOR << s_name << std::endl;
 	pi_table = new int[i_table_len];
 
 	for(int i = 0; i < i_table_len; i++)
@@ -30,7 +30,7 @@ CTable::CTable(std::string sName, int iTableLen)
 	if (iTableLen > 0)
 	{
 		i_table_len = iTableLen;
-		std::cout << CTableConstants::MSG_CTABLE_PARAMETERED_CONSTRUCTOR << s_name << std::endl;
+		std::cout << MessageConstants::MSG_CTABLE_PARAMETERED_CONSTRUCTOR << s_name << std::endl;
 		pi_table = new int[i_table_len];
 
 		for(int i = 0; i < i_table_len; i++)
@@ -47,16 +47,16 @@ CTable::CTable(std::string sName, int iTableLen)
 
 CTable::CTable(CTable & pcOther)
 {
-	s_name = pcOther.s_name + CTableConstants::CTABLE_COPY_NAME_APPEND_TEXT;
+	s_name = pcOther.s_name + MessageConstants::CTABLE_COPY_NAME_APPEND_TEXT;
 	i_table_len = pcOther.i_table_len;
-	std::cout << CTableConstants::MSG_CTABLE_COPY_CONSTRUCTOR << s_name << std::endl;
+	std::cout << MessageConstants::MSG_CTABLE_COPY_CONSTRUCTOR << s_name << std::endl;
 	pi_table = new int[i_table_len];
 	memcpy(pi_table, pcOther.pi_table, sizeof(int) * i_table_len);
 } // CTable::CTable(CTable & pcOther)
 
 CTable::~CTable()
 {
-	std::cout << CTableConstants::MSG_CTABLE_DESTRUCTOR << s_name << std::endl;
+	std::cout << MessageConstants::MSG_CTABLE_DESTRUCTOR << s_name << std::endl;
 	i_table_len = 0;
 	delete[] pi_table;
 } // CTable::~CTable()
@@ -135,7 +135,7 @@ int CTable::iGetElement(int iOffset, bool * pbSuccess)
 
 CTable* CTable::cClone(bool * pbIsSuccess)
 {
-	CTable * pc_table_clone = new CTable(s_name + CTableConstants::CTABLE_CLONE_NAME_APPEND_TEXT, i_table_len);
+	CTable * pc_table_clone = new CTable(s_name + MessageConstants::CTABLE_CLONE_NAME_APPEND_TEXT, i_table_len);
 	*pbIsSuccess = pc_table_clone->bCopyStateFrom(*this);
 	return *pbIsSuccess ? pc_table_clone : NULL;
 } // CTable CTable::cClone()
