@@ -7,7 +7,7 @@
 CGetTableLengthCommand::CGetTableLengthCommand(std::vector<CTable*>* pvTables)
 {
 	pv_tables = pvTables;
-}
+} // CGetTableLengthCommand::CGetTableLengthCommand(std::vector<CTable*>* pvTables)
 
 bool CGetTableLengthCommand::bRunCommand(std::string * psResponseMsg)
 {
@@ -35,4 +35,4 @@ bool CGetTableLengthCommand::bRunCommand(std::string * psResponseMsg)
 	}
 
 	return b_success;
-}
+} // bool CGetTableLengthCommand::bRunCommand(std::string * psResponseMsg)

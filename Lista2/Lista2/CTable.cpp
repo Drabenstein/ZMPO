@@ -36,7 +36,7 @@ CTable::CTable(std::string sName, int iTableLen)
 		for(int i = 0; i < i_table_len; i++)
 		{
 			pi_table[i] = DEFAULT_VALUE;
-		}
+		} // for(int i = 0; i < i_table_len; i++)
 	}
 	else
 	{
@@ -143,7 +143,7 @@ CTable* CTable::cClone(bool * pbIsSuccess)
 bool CTable::bCopyStateFrom(CTable & pcAnother)
 {
 	i_table_len = pcAnother.i_table_len;
-	delete pi_table;
+	delete[] pi_table;
 	pi_table = new int[i_table_len];
 	memcpy(pi_table, pcAnother.pi_table, sizeof(int) * i_table_len);
 	return true;

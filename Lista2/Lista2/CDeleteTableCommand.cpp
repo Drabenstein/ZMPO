@@ -7,7 +7,7 @@
 CDeleteTableCommand::CDeleteTableCommand(std::vector<CTable*>* pvTables)
 {
 	pv_tables = pvTables;
-}
+} // CDeleteTableCommand::CDeleteTableCommand(std::vector<CTable*>* pvTables)
 
 bool CDeleteTableCommand::bRunCommand(std::string * psResponseMsg)
 {
@@ -39,4 +39,4 @@ bool CDeleteTableCommand::bRunCommand(std::string * psResponseMsg)
 	}
 
 	return b_success;
-}
+} // bool CDeleteTableCommand::bRunCommand(std::string * psResponseMsg)

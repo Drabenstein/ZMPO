@@ -8,7 +8,7 @@
 CSetTableNameCommand::CSetTableNameCommand(std::vector<CTable*>* pvTables)
 {
 	pv_tables = pvTables;
-}
+} // CSetTableNameCommand::CSetTableNameCommand(std::vector<CTable*>* pvTables)
 
 bool CSetTableNameCommand::bRunCommand(std::string * psResponseMsg)
 {
@@ -40,4 +40,4 @@ bool CSetTableNameCommand::bRunCommand(std::string * psResponseMsg)
 	}
 
 	return b_success;
-}
+} // bool CSetTableNameCommand::bRunCommand(std::string * psResponseMsg)

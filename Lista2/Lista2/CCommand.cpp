@@ -7,7 +7,7 @@ bool CCommand::bRunCommand(std::string * psResponseMsg)
 {
 	std::cout << MenuConstants::MSG_DEFAULT_CMD << std::endl;
 	return true;
-}
+} // bool CCommand::bRunCommand(std::string * psResponseMsg)
 
 void CCommand::vSetResponse(std::string * psResponse, const std::string & psMsg)
 {
@@ -15,4 +15,4 @@ void CCommand::vSetResponse(std::string * psResponse, const std::string & psMsg)
 	{
 		*psResponse = psMsg;
 	}
-}
+} // void CCommand::vSetResponse(std::string * psResponse, const std::string & psMsg)

@@ -7,7 +7,7 @@
 CGetTableInfoCommand::CGetTableInfoCommand(std::vector<CTable*>* pvTables)
 {
 	pv_tables = pvTables;
-}
+} // CGetTableInfoCommand::CGetTableInfoCommand(std::vector<CTable*>* pvTables)
 
 bool CGetTableInfoCommand::bRunCommand(std::string * psResponseMsg)
 {
@@ -33,4 +33,4 @@ bool CGetTableInfoCommand::bRunCommand(std::string * psResponseMsg)
 	}
 
 	return b_success;
-}
+} // bool CGetTableInfoCommand::bRunCommand(std::string * psResponseMsg)

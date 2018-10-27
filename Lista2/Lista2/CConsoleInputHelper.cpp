@@ -3,35 +3,29 @@
 #include <iostream>
 #include "MessageConstants.h"
 
-const CConsoleInputHelper & CConsoleInputHelper::rcGetInstance()
-{
-	static CConsoleInputHelper instance;
-	return instance;
-}
-
 bool CConsoleInputHelper::bReadTableIndex(int * piTableIndex) const
 {
 	std::cout << MessageConstants::MSG_INPUT_TABLE_INDEX << std::endl;
 	return b_readTableIndex(piTableIndex) && piTableIndex >= NULL;
-}
+} // bool CConsoleInputHelper::bReadTableIndex(int * piTableIndex) const
 
 bool CConsoleInputHelper::bReadValueIndex(int * piValueIndex) const
 {
 	std::cout << MessageConstants::MSG_INPUT_VALUE_INDEX << std::endl;
 	return b_readTableIndex(piValueIndex) && piValueIndex >= NULL;
-}
+} // bool CConsoleInputHelper::bReadValueIndex(int * piValueIndex) const
 
 bool CConsoleInputHelper::bReadTableLength(int * piTableLength) const
 {
 	std::cout << MessageConstants::MSG_INPUT_TABLE_LENGTH << std::endl;
 	return b_readTableIndex(piTableLength) && piTableLength > NULL;
-}
+} // bool CConsoleInputHelper::bReadTableLength(int * piTableLength) const
 
 bool CConsoleInputHelper::bReadValue(int * piValue) const
 {
 	std::cout << MessageConstants::MSG_INPUT_VALUE << std::endl;
 	return b_readTableIndex(piValue);
-}
+} // bool CConsoleInputHelper::bReadValue(int * piValue) const
 
 bool CConsoleInputHelper::b_readTableIndex(int * piIndex) const
 {
@@ -55,4 +49,4 @@ bool CConsoleInputHelper::b_readTableIndex(int * piIndex) const
 
 	*piIndex = i_table_index;
 	return b_is_success;
-}
+} // bool CConsoleInputHelper::b_readTableIndex(int * piIndex) const

@@ -9,4 +9,4 @@ CMenuItem::CMenuItem(std::string sName, std::string sCommand, bool * bSuccess)
 	{
 		*bSuccess = s_command.length() > 0;
 	}
-}
+} // CMenuItem::CMenuItem(std::string sName, std::string sCommand, bool * bSuccess)

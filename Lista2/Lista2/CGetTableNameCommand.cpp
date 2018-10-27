@@ -7,7 +7,7 @@
 CGetTableNameCommand::CGetTableNameCommand(std::vector<CTable*>* pvTables)
 {
 	pv_tables = pvTables;
-}
+} // CGetTableNameCommand::CGetTableNameCommand(std::vector<CTable*>* pvTables)
 
 bool CGetTableNameCommand::bRunCommand(std::string * psResponseMsg)
 {
@@ -35,4 +35,4 @@ bool CGetTableNameCommand::bRunCommand(std::string * psResponseMsg)
 	}
 
 	return b_success;
-}
+} // bool CGetTableNameCommand::bRunCommand(std::string * psResponseMsg)

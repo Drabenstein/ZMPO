@@ -7,7 +7,7 @@
 CSetValueCommand::CSetValueCommand(std::vector<CTable*>* pvTables)
 {
 	pv_tables = pvTables;
-}
+} // CSetValueCommand::CSetValueCommand(std::vector<CTable*>* pvTables)
 
 bool CSetValueCommand::bRunCommand(std::string * psResponseMsg)
 {
@@ -54,4 +54,4 @@ bool CSetValueCommand::bRunCommand(std::string * psResponseMsg)
 	}
 
 	return b_success;
-}
+} // bool CSetValueCommand::bRunCommand(std::string * psResponseMsg)

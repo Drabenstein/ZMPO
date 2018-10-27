@@ -27,4 +27,4 @@ bool CCreateDefaultTableCommand::bRunCommand(std::string * psResponseMsg)
 	}
 
 	return b_success;
-}
+} // bool CCreateDefaultTableCommand::bRunCommand(std::string * psResponseMsg)

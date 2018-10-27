@@ -8,7 +8,7 @@
 CMenu::CMenu(std::string sName, std::string sCommand, bool * bSuccess) : CMenuItem(sName, sCommand, bSuccess)
 {
 	pv_menu_items = new std::vector<CMenuItem*>();
-} // CMenu::CMenu(std::string sName, std::string sCommand) : CMenuItem(sName, sCommand)
+} // CMenu::CMenu(std::string sName, std::string sCommand, bool * bSuccess) : CMenuItem(sName, sCommand, bSuccess)
 
 CMenu::~CMenu()
 {
@@ -19,7 +19,7 @@ CMenu::~CMenu()
 
 	pv_menu_items->clear();
 	delete pv_menu_items;
-}
+} // CMenu::~CMenu()
 
 void CMenu::vRun()
 {
@@ -110,32 +110,32 @@ const std::vector<CMenuItem*>& CMenu::pvGetMenuItems()
 
 bool CMenu::bRemoveMenuItem(int iOffset)
 {
-	bool b_is_success = false;
+	bool b_success = false;
 
 	if(iOffset >= 0 && iOffset < pv_menu_items->size())
 	{
 		delete pv_menu_items->at(iOffset);
 		pv_menu_items->erase(pv_menu_items->begin() + iOffset);
-		b_is_success = true;
+		b_success = true;
 	}
 
-	return true;
+	return b_success;
 } // bool CMenu::bRemoveMenuItem(int iOffset)
 
 std::string CMenu::sGetMenuHeader()
 {
 	return s_name;
-}
+} // std::string CMenu::sGetMenuHeader()
 
 std::string CMenu::sGetCommand()
 {
 	return s_command;
-}
+} // std::string CMenu::sGetCommand()
 
 std::string CMenu::sGetName()
 {
 	return s_name;
-}
+} // std::string CMenu::sGetName()
 
 bool CMenu::bSetName(std::string sName)
 {
@@ -148,7 +148,7 @@ bool CMenu::bSetName(std::string sName)
 	}
 
 	return b_change_success;
-}
+} // bool CMenu::bSetName(std::string sName)
 
 bool CMenu::bSetCommand(std::string sCommand)
 {
@@ -161,4 +161,4 @@ bool CMenu::bSetCommand(std::string sCommand)
 	}
 
 	return b_change_success;
-}
+} // bool CMenu::bSetCommand(std::string sCommand)

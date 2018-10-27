@@ -8,7 +8,7 @@
 CCreateParameterTableCommand::CCreateParameterTableCommand(std::vector<CTable*>* pvTables)
 {
 	pv_tables = pvTables;
-}
+} // CCreateParameterTableCommand::CCreateParameterTableCommand(std::vector<CTable*>* pvTables)
 
 bool CCreateParameterTableCommand::bRunCommand(std::string * psResponseMsg)
 {
@@ -43,4 +43,4 @@ bool CCreateParameterTableCommand::bRunCommand(std::string * psResponseMsg)
 	}
 
 	return b_success;
-}
+} // bool CCreateParameterTableCommand::bRunCommand(std::string * psResponseMsg)

@@ -7,7 +7,7 @@
 CCloneTableCommand::CCloneTableCommand(std::vector<CTable*>* pvTables)
 {
 	pv_tables = pvTables;
-}
+} // CCloneTableCommand::CCloneTableCommand(std::vector<CTable*>* pvTables)
 
 bool CCloneTableCommand::bRunCommand(std::string * psResponseMsg)
 {
@@ -37,4 +37,4 @@ bool CCloneTableCommand::bRunCommand(std::string * psResponseMsg)
 	}
 
 	return b_success;
-}
+} // bool CCloneTableCommand::bRunCommand(std::string * psResponseMsg)

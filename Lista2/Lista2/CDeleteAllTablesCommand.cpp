@@ -5,7 +5,7 @@
 CDeleteAllTablesCommand::CDeleteAllTablesCommand(std::vector<CTable*>* pvTables)
 {
 	pv_tables = pvTables;
-}
+} // CDeleteAllTablesCommand::CDeleteAllTablesCommand(std::vector<CTable*>* pvTables)
 
 bool CDeleteAllTablesCommand::bRunCommand(std::string * psResponseMsg)
 {
@@ -16,7 +16,7 @@ bool CDeleteAllTablesCommand::bRunCommand(std::string * psResponseMsg)
 		for(int i = 0; i < pv_tables->size(); i++)
 		{
 			delete pv_tables->at(i);
-		}
+		} // for(int i = 0; i < pv_tables->size(); i++)
 
 		pv_tables->clear();
 		b_success = true;
@@ -28,4 +28,4 @@ bool CDeleteAllTablesCommand::bRunCommand(std::string * psResponseMsg)
 	}
 
 	return b_success;
-}
+} // bool CDeleteAllTablesCommand::bRunCommand(std::string * psResponseMsg)

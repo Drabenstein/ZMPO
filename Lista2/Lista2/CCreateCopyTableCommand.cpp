@@ -7,7 +7,7 @@
 CCreateCopyTableCommand::CCreateCopyTableCommand(std::vector<CTable*>* pvTables)
 {
 	pv_tables = pvTables;
-}
+} // CCreateCopyTableCommand::CCreateCopyTableCommand(std::vector<CTable*>* pvTables)
 
 bool CCreateCopyTableCommand::bRunCommand(std::string * psResponseMsg)
 {
@@ -37,4 +37,4 @@ bool CCreateCopyTableCommand::bRunCommand(std::string * psResponseMsg)
 	}
 
 	return b_success;
-}
+} // bool CCreateCopyTableCommand::bRunCommand(std::string * psResponseMsg)
