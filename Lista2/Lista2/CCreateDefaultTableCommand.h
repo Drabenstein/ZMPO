@@ -1,15 +1,12 @@
 #pragma once
-#include "CCommand.h"
 #include "CTable.h"
 #include <vector>
+#include "CCTableCommand.h"
 
-class CCreateDefaultTableCommand : public CCommand
+class CCreateDefaultTableCommand : public CCTableCommand
 {
-private:
-	std::vector<CTable*>* pv_tables;
-
 public:
-	CCreateDefaultTableCommand(std::vector<CTable*>* pvTables);
+	CCreateDefaultTableCommand(std::vector<CTable*>* pvTables) : CCTableCommand(pvTables) {}
 
 	bool bRunCommand(std::string * psResponseMsg) override;
 };

@@ -4,11 +4,6 @@
 #include "CConsoleInputHelper.h"
 #include <sstream>
 
-CSetValueCommand::CSetValueCommand(std::vector<CTable*>* pvTables)
-{
-	pv_tables = pvTables;
-} // CSetValueCommand::CSetValueCommand(std::vector<CTable*>* pvTables)
-
 bool CSetValueCommand::bRunCommand(std::string * psResponseMsg)
 {
 	bool b_success = false;

@@ -4,11 +4,6 @@
 #include "CConsoleInputHelper.h"
 #include <sstream>
 
-CGetTableNameCommand::CGetTableNameCommand(std::vector<CTable*>* pvTables)
-{
-	pv_tables = pvTables;
-} // CGetTableNameCommand::CGetTableNameCommand(std::vector<CTable*>* pvTables)
-
 bool CGetTableNameCommand::bRunCommand(std::string * psResponseMsg)
 {
 	bool b_success = false;

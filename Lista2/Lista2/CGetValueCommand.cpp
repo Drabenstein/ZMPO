@@ -5,11 +5,6 @@
 #include <iostream>
 #include <sstream>
 
-CGetValueCommand::CGetValueCommand(std::vector<CTable*>* pvTables)
-{
-	pv_tables = pvTables;
-} // CGetValueCommand::CGetValueCommand(std::vector<CTable*>* pvTables)
-
 bool CGetValueCommand::bRunCommand(std::string * psResponseMsg)
 {
 	bool b_success = false;

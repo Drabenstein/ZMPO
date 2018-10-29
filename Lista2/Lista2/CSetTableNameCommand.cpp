@@ -5,11 +5,6 @@
 #include <iostream>
 #include <sstream>
 
-CSetTableNameCommand::CSetTableNameCommand(std::vector<CTable*>* pvTables)
-{
-	pv_tables = pvTables;
-} // CSetTableNameCommand::CSetTableNameCommand(std::vector<CTable*>* pvTables)
-
 bool CSetTableNameCommand::bRunCommand(std::string * psResponseMsg)
 {
 	bool b_success = false;

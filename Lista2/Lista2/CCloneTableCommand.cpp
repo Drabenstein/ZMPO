@@ -4,11 +4,6 @@
 #include "CConsoleInputHelper.h"
 #include <sstream>
 
-CCloneTableCommand::CCloneTableCommand(std::vector<CTable*>* pvTables)
-{
-	pv_tables = pvTables;
-} // CCloneTableCommand::CCloneTableCommand(std::vector<CTable*>* pvTables)
-
 bool CCloneTableCommand::bRunCommand(std::string * psResponseMsg)
 {
 	bool b_success = false;

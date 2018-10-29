@@ -3,11 +3,6 @@
 #include "MessageConstants.h"
 #include <sstream>
 
-CCreateDefaultTableCommand::CCreateDefaultTableCommand(std::vector<CTable*>* pvTables)
-{
-	pv_tables = pvTables;
-} // CCreateDefaultTableCommand::CCreateDefaultTableCommand(std::vector<CTable*>* pvTables)
-
 bool CCreateDefaultTableCommand::bRunCommand(std::string * psResponseMsg)
 {
 	bool b_success = false;

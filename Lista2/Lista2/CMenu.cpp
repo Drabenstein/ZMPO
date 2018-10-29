@@ -85,7 +85,8 @@ bool CMenu::bAddMenuItem(CMenuItem * pcMenuItem)
 		for (int i = 0; i < v_menu_items.size() && !b_is_duplicate; i++)
 		{
 			CMenuItem* pc_current_item = v_menu_items.at(i);
-			if (pcMenuItem->sGetCommand() == pc_current_item->sGetCommand())
+			if (pcMenuItem->sGetName() == pc_current_item->sGetName() 
+				|| pcMenuItem->sGetCommand() == pc_current_item->sGetCommand())
 			{
 				b_is_duplicate = true;
 			}

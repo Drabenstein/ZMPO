@@ -4,11 +4,6 @@
 #include "MessageConstants.h"
 #include <sstream>
 
-CCreateCopyTableCommand::CCreateCopyTableCommand(std::vector<CTable*>* pvTables)
-{
-	pv_tables = pvTables;
-} // CCreateCopyTableCommand::CCreateCopyTableCommand(std::vector<CTable*>* pvTables)
-
 bool CCreateCopyTableCommand::bRunCommand(std::string * psResponseMsg)
 {
 	bool b_success = false;

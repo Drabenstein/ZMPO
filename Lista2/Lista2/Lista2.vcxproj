@@ -156,6 +156,7 @@
     <ClInclude Include="CCreateCopyTableCommand.h" />
     <ClInclude Include="CCreateDefaultTableCommand.h" />
     <ClInclude Include="CCreateParameterTableCommand.h" />
+    <ClInclude Include="CCTableCommand.h" />
     <ClInclude Include="CDeleteAllTablesCommand.h" />
     <ClInclude Include="CDeleteTableCommand.h" />
     <ClInclude Include="CGetTableInfoCommand.h" />
@@ -181,6 +182,7 @@
     <ClCompile Include="CCreateCopyTableCommand.cpp" />
     <ClCompile Include="CCreateDefaultTableCommand.cpp" />
     <ClCompile Include="CCreateParameterTableCommand.cpp" />
+    <ClCompile Include="CCTableCommand.cpp" />
     <ClCompile Include="CDeleteAllTablesCommand.cpp" />
     <ClCompile Include="CDeleteTableCommand.cpp" />
     <ClCompile Include="CGetTableInfoCommand.cpp" />

@@ -2,11 +2,6 @@
 #include "CDeleteAllTablesCommand.h"
 #include "MessageConstants.h"
 
-CDeleteAllTablesCommand::CDeleteAllTablesCommand(std::vector<CTable*>* pvTables)
-{
-	pv_tables = pvTables;
-} // CDeleteAllTablesCommand::CDeleteAllTablesCommand(std::vector<CTable*>* pvTables)
-
 bool CDeleteAllTablesCommand::bRunCommand(std::string * psResponseMsg)
 {
 	bool b_success = false;

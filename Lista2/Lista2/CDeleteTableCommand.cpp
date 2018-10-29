@@ -4,11 +4,6 @@
 #include "CConsoleInputHelper.h"
 #include <sstream>
 
-CDeleteTableCommand::CDeleteTableCommand(std::vector<CTable*>* pvTables)
-{
-	pv_tables = pvTables;
-} // CDeleteTableCommand::CDeleteTableCommand(std::vector<CTable*>* pvTables)
-
 bool CDeleteTableCommand::bRunCommand(std::string * psResponseMsg)
 {
 	bool b_success = false;

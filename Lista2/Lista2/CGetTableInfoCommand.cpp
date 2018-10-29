@@ -2,12 +2,6 @@
 #include "CGetTableInfoCommand.h"
 #include "MessageConstants.h"
 #include "CConsoleInputHelper.h"
-#include <sstream>
-
-CGetTableInfoCommand::CGetTableInfoCommand(std::vector<CTable*>* pvTables)
-{
-	pv_tables = pvTables;
-} // CGetTableInfoCommand::CGetTableInfoCommand(std::vector<CTable*>* pvTables)
 
 bool CGetTableInfoCommand::bRunCommand(std::string * psResponseMsg)
 {

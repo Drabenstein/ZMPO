@@ -5,11 +5,6 @@
 #include "CConsoleInputHelper.h"
 #include <sstream>
 
-CCreateParameterTableCommand::CCreateParameterTableCommand(std::vector<CTable*>* pvTables)
-{
-	pv_tables = pvTables;
-} // CCreateParameterTableCommand::CCreateParameterTableCommand(std::vector<CTable*>* pvTables)
-
 bool CCreateParameterTableCommand::bRunCommand(std::string * psResponseMsg)
 {
 	bool b_success = false;
