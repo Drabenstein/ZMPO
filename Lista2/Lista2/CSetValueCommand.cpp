@@ -25,7 +25,7 @@ bool CSetValueCommand::bRunCommand(std::string * psResponseMsg)
 					b_success = pc_selected_table->bSetElement(i_value_index, i_new_value);
 					std::stringstream c_output;
 					c_output << MessageConstants::MSG_VALUE_CHANGED << i_new_value 
-						<< MessageConstants::MSG_AT_INDEX << pv_tables->size() - 1;
+						<< MessageConstants::MSG_AT_INDEX << i_value_index;
 					vSetResponse(psResponseMsg, c_output.str());
 				}
 				else
