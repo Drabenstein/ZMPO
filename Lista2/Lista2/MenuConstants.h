@@ -29,6 +29,7 @@ namespace MenuConstants
 	extern const std::string CMD_NAMES_MENU;
 	extern const std::string CMD_DELETION_MENU;
 	extern const std::string CMD_BACK;
+	extern const std::string CMD_EXIT;
 
 	extern const std::string CMD_CREATE_DEFAULT_MENU_CMD;
 	extern const std::string CMD_CREATE_PARAMETER_MENU_CMD;

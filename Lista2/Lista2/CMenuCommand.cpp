@@ -23,7 +23,7 @@ CMenuCommand::~CMenuCommand()
 	delete pc_command;
 } // CMenuCommand::~CMenuCommand()
 
-void CMenuCommand::vRun()
+bool CMenuCommand::bRun()
 {
 	if(pc_command != nullptr)
 	{
@@ -38,7 +38,9 @@ void CMenuCommand::vRun()
 	{
 		std::cout << MenuConstants::MSG_EMPTY_CMD << std::endl << std::endl;
 	}
-} // void CMenuCommand::vRun()
+
+	return false;
+} // void CMenuCommand::bRun()
 
 bool CMenuCommand::bSetCCommand(CCommand * pcCommand)
 {

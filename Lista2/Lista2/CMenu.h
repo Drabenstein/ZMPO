@@ -12,7 +12,7 @@ public:
 
 	virtual ~CMenu();
 
-	void vRun() override;
+	bool bRun() override;
 	std::string sToString() override;
 	virtual std::string sGetCommand() override;
 	virtual std::string sGetName() override;

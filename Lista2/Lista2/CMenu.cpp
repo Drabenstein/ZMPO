@@ -19,8 +19,9 @@ CMenu::~CMenu()
 	v_menu_items.clear();
 } // CMenu::~CMenu()
 
-void CMenu::vRun()
+bool CMenu::bRun()
 {
+	bool b_back_requested = false;
 	bool b_exit_requested = false;
 
 	do
@@ -52,20 +53,25 @@ void CMenu::vRun()
 
 		if(s_user_command == MenuConstants::CMD_BACK)
 		{
+			b_back_requested = true;
+		}
+		else if(s_user_command == MenuConstants::CMD_EXIT)
+		{
 			b_exit_requested = true;
 		}
 		else if(pc_selected_item != nullptr)
 		{
-			pc_selected_item->vRun();
+			b_exit_requested = pc_selected_item->bRun();
 		}
 		else
 		{
 			std::cout << MenuConstants::ERR_MSG_INVALID_CMD << std::endl;
 		}
 
-	} while (!b_exit_requested);
+	} while (!b_back_requested && !b_exit_requested);
 
-} // void CMenu::vRun()
+	return b_exit_requested;
+} // void CMenu::bRun()
 
 std::string CMenu::sToString()
 {

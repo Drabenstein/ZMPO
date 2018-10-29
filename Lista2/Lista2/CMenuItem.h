@@ -6,7 +6,7 @@ class CMenuItem
 public:
 	virtual ~CMenuItem() {}
 
-	virtual void vRun() = 0;
+	virtual bool bRun() = 0;
 
 	virtual std::string sToString() = 0;
 

@@ -13,7 +13,7 @@ public:
 
 	virtual ~CMenuCommand();
 
-	void vRun() override;
+	bool bRun() override;
 
 	bool bSetCCommand(CCommand* pcCommand);
 	const CCommand* pcGetCCommand();
