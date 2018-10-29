@@ -53,4 +53,7 @@ namespace MenuConstants
 
 	extern const std::string ERR_MSG_INVALID_CMD;
 	extern const std::string ERR_MSG_CMD_FAILED;
+
+	extern const std::string MSG_TAG_OPEN_CMD;
+	extern const std::string MSG_TAG_CLOSE_CMD;
 }

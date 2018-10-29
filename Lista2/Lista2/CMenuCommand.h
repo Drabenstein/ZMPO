@@ -17,10 +17,4 @@ public:
 
 	bool bSetCCommand(CCommand* pcCommand);
 	const CCommand* pcGetCCommand();
-
-	virtual std::string sToString() override;
-	virtual std::string sGetCommand() override;
-	virtual std::string sGetName() override;
-	virtual bool bSetName(std::string sName) override;
-	virtual bool bSetCommand(std::string sCommand) override;
 };

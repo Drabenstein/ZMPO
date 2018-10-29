@@ -51,3 +51,6 @@ const std::string MenuConstants::MSG_CMD_NUM_SEPARATOR = ". ";
 
 const std::string MenuConstants::ERR_MSG_INVALID_CMD = "Unknown command";
 const std::string MenuConstants::ERR_MSG_CMD_FAILED = "Command failed";
+
+const std::string MenuConstants::MSG_TAG_OPEN_CMD = "(";
+const std::string MenuConstants::MSG_TAG_CLOSE_CMD = ")";

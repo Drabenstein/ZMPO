@@ -73,13 +73,6 @@ bool CMenu::bRun()
 	return b_exit_requested;
 } // void CMenu::bRun()
 
-std::string CMenu::sToString()
-{
-	std::ostringstream c_result;
-	c_result << s_name << "(" << s_command << ")";
-	return c_result.str();
-} // std::string CMenu::sToString()
-
 bool CMenu::bAddMenuItem(CMenuItem * pcMenuItem)
 {
 	bool b_is_succces = false;
@@ -129,41 +122,5 @@ bool CMenu::bRemoveMenuItem(int iOffset)
 
 std::string CMenu::sGetMenuHeader()
 {
-	return s_name;
+	return sGetName();
 } // std::string CMenu::sGetMenuHeader()
-
-std::string CMenu::sGetCommand()
-{
-	return s_command;
-} // std::string CMenu::sGetCommand()
-
-std::string CMenu::sGetName()
-{
-	return s_name;
-} // std::string CMenu::sGetName()
-
-bool CMenu::bSetName(std::string sName)
-{
-	bool b_change_success = false;
-
-	if(sName.length() > 0)
-	{
-		s_name = sName;
-		b_change_success = true;
-	}
-
-	return b_change_success;
-} // bool CMenu::bSetName(std::string sName)
-
-bool CMenu::bSetCommand(std::string sCommand)
-{
-	bool b_change_success = false;
-
-	if(sCommand.length() > 0)
-	{
-		s_command = sCommand;
-		b_change_success = true;
-	}
-
-	return b_change_success;
-} // bool CMenu::bSetCommand(std::string sCommand)

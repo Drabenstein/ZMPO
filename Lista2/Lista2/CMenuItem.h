@@ -8,18 +8,18 @@ public:
 
 	virtual bool bRun() = 0;
 
-	virtual std::string sToString() = 0;
+	virtual std::string sToString();
 
-	virtual std::string sGetCommand() = 0;
+	std::string sGetCommand();
 
-	virtual std::string sGetName() = 0;
+	std::string sGetName();
 
-	virtual bool bSetName(std::string sName) = 0;
+	bool bSetName(std::string sName);
 
-	virtual bool bSetCommand(std::string sCommand) = 0;
+	bool bSetCommand(std::string sCommand);
 
 protected:
-	CMenuItem(std::string sCommand, std::string sName, bool * bSuccess);
+	CMenuItem(std::string sName, std::string sCommand, bool * bSuccess);
 	CMenuItem() {};
 
 	std::string s_command;

@@ -3,6 +3,11 @@
 #include "CTable.h"
 #include "CCTableCommand.h"
 
+namespace TableCommand
+{
+	
+}
+
 class CCloneTableCommand : public CCTableCommand
 {
 public:
