@@ -46,6 +46,9 @@
 **/[Tt]est[Rr]esult*/
 **/[Bb]uild[Ll]og.*
 
+*.vcxproj.filters
+*.vcxproj.user
+
 *_i.c
 *_p.c
 *_h.h
