@@ -40,4 +40,6 @@ namespace MessageConstants
 	extern const std::string MSG_CTABLE_COPY_CONSTRUCTOR;
 	extern const std::string CTABLE_COPY_NAME_APPEND_TEXT;
 	extern const std::string CTABLE_CLONE_NAME_APPEND_TEXT;
+
+	extern const std::string MSG_INPUT_DESERIALIZE_TEXT;
 }

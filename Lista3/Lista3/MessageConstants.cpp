@@ -38,3 +38,5 @@ const std::string MessageConstants::MSG_CTABLE_PARAMETERED_CONSTRUCTOR = "parame
 const std::string MessageConstants::MSG_CTABLE_COPY_CONSTRUCTOR = "kopiuj: ";
 const std::string MessageConstants::CTABLE_COPY_NAME_APPEND_TEXT = "_copy";
 const std::string MessageConstants::CTABLE_CLONE_NAME_APPEND_TEXT = "_clone";
+
+const std::string MessageConstants::MSG_INPUT_DESERIALIZE_TEXT = "Insert text to deserialize menu from: ";
