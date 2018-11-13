@@ -56,6 +56,10 @@ namespace MenuConstants
 	extern const std::string MSG_CMD_NUM_SEPARATOR;
 	extern const std::string MSG_PATH_SEPARATOR;
 
+	extern const std::string MSG_MENU_HIDDEN_CMD_HELP_MSG;
+	extern const std::string HELP_MSG_CMD_SEARCH;
+	extern const std::string HELP_MSG_CMD_HELP;
+
 	extern const std::string ERR_MSG_INVALID_CMD;
 	extern const std::string ERR_MSG_CMD_FAILED;
 	extern const std::string ERR_MSG_CMD_DOES_NOT_EXIST;

@@ -53,6 +53,10 @@ const std::string MenuConstants::MSG_MENU_SEPARATOR = "=========================
 const std::string MenuConstants::MSG_CMD_NUM_SEPARATOR = ". ";
 const std::string MenuConstants::MSG_PATH_SEPARATOR = "->";
 
+const std::string MenuConstants::MSG_MENU_HIDDEN_CMD_HELP_MSG = "List of every menu 'hidden' commands:";
+const std::string MenuConstants::HELP_MSG_CMD_SEARCH = "search <command>";
+const std::string MenuConstants::HELP_MSG_CMD_HELP = "help <command>";
+
 const std::string MenuConstants::ERR_MSG_INVALID_CMD = "Unknown command";
 const std::string MenuConstants::ERR_MSG_CMD_FAILED = "Command failed";
 const std::string MenuConstants::ERR_MSG_CMD_DOES_NOT_EXIST = "Command doesn't exist";

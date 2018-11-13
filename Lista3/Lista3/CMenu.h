@@ -14,6 +14,8 @@ public:
 
 	bool bRun() override;
 
+	std::string sGetHelp() override;
+
 	std::string sSerialize() override;
 
 	int iDeserialize(std::string& sInput, int iCurrentPosition, std::string& sErrorMsg) override;
@@ -32,7 +34,7 @@ public:
 	static const std::string DEFAULT_CMD;
 
 protected:
-	virtual CMenuItem* makeCommand();
+	virtual CMenuItem* pc_make_command();
 
 private:
 	std::vector<CMenuItem*> v_menu_items;

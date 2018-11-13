@@ -125,6 +125,18 @@ bool CMenu::bRun()
 	return b_exit_not_requested;
 } // void CMenu::bRun()
 
+std::string CMenu::sGetHelp()
+{
+	std::stringstream c_help_msg;
+	c_help_msg << MC::MSG_MENU_HIDDEN_CMD_HELP_MSG << std::endl;
+	c_help_msg << MC::HELP_MSG_CMD_SEARCH << std::endl;
+	c_help_msg << MC::HELP_MSG_CMD_HELP << std::endl;
+	c_help_msg << MC::CMD_SERIALIZE << std::endl;
+	c_help_msg << MC::CMD_BACK << std::endl;
+	c_help_msg << MC::CMD_EXIT << std::endl;
+	return c_help_msg.str();
+} // std::string CMenu::sGetHelp()
+
 std::string CMenu::sSerialize()
 {
 	std::ostringstream c_result;
@@ -201,7 +213,7 @@ int CMenu::iDeserialize(std::string & sInput, int iCurrentPosition, std::string 
 			}
 			else if(c_string_helper.bStartsWith(sInput.substr(iCurrentPosition), MC::SYMBOL_MENU_CMD_OPEN_TAG))
 			{
-				pc_new_child = makeCommand();
+				pc_new_child = pc_make_command();
 			}
 
 			if(pc_new_child != nullptr)
@@ -293,10 +305,10 @@ std::string CMenu::sGetMenuHeader()
 	return sGetName();
 } // std::string CMenu::sGetMenuHeader()
 
-CMenuItem * CMenu::makeCommand()
+CMenuItem * CMenu::pc_make_command()
 {
 	return new CMenuCommand();
-} // CMenuItem * CMenu::makeCommand()
+} // CMenuItem * CMenu::pc_make_command()
 
 bool CMenu::b_is_restricted_cmd(CMenuItem * pcMenuItem)
 {
