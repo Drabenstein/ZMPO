@@ -156,6 +156,8 @@
     <ClInclude Include="CMenu.h" />
     <ClInclude Include="CMenuCommand.h" />
     <ClInclude Include="CMenuItem.h" />
+    <ClInclude Include="CSerializeCommand.h" />
+    <ClInclude Include="CStringHelper.h" />
     <ClInclude Include="MenuConstants.h" />
     <ClInclude Include="MessageConstants.h" />
     <ClInclude Include="pch.h" />
@@ -166,6 +168,8 @@
     <ClCompile Include="CMenu.cpp" />
     <ClCompile Include="CMenuCommand.cpp" />
     <ClCompile Include="CMenuItem.cpp" />
+    <ClCompile Include="CSerializeCommand.cpp" />
+    <ClCompile Include="CStringHelper.cpp" />
     <ClCompile Include="Lista3.cpp" />
     <ClCompile Include="MenuConstants.cpp" />
     <ClCompile Include="MessageConstants.cpp" />

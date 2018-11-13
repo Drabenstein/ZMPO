@@ -61,4 +61,21 @@ namespace MenuConstants
 	extern const std::string MSG_TAG_OPEN_CMD;
 	extern const std::string MSG_TAG_CLOSE_CMD;
 	extern const std::string MSG_WHITE_SPACE;
+	extern const std::string MSG_APOSTROPHE;
+
+	extern const std::string SYMBOL_MENU_OPEN_TAG;
+	extern const std::string SYMBOL_MENU_CLOSE_TAG;
+	extern const std::string SYMBOL_MENU_CHILD_LIST_START;
+	extern const std::string SYMBOL_ATTRIBUTE_SEPARATOR;
+	extern const std::string SYMBOL_MENU_CMD_OPEN_TAG;
+	extern const std::string SYMBOL_MENU_CMD_CLOSE_TAG;
+	extern const std::string SYMBOL_VALUE_OPEN_TAG;
+	extern const std::string SYMBOL_VALUE_CLOSE_TAG;
+
+	extern const std::string PARSE_ERR_MSG_FAILED_AT;
+	extern const std::string PARSE_ERR_MSG_EXPECTED;
+	extern const std::string PARSE_ERR_MSG_FOUND;
+	extern const std::string PARSE_ERR_MSG_INSTEAD;
+	extern const std::string PARSE_ERR_MSG_MISSING_VALUE_CLOSE_TAG;
+	extern const std::string PARSE_ERR_MSG_UNKNOWN_CHILD;
 }

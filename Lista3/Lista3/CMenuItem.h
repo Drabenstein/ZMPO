@@ -13,6 +13,10 @@ public:
 
 	virtual std::string sToString();
 
+	virtual std::string sSerialize() = 0;
+
+	virtual int iDeserialize(std::string& sInput, int iCurrentPosition, std::string& sErrorMsg) = 0;
+
 	virtual void vSearch(std::vector<CMenuItem*>* pvFoundItems, const std::string& rsCmdToFind) = 0;
 
 	std::vector<CMenuItem*>* pvInitSearch(std::string& rsCmdToFind);

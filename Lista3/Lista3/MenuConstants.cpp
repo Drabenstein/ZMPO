@@ -59,3 +59,20 @@ const std::string MenuConstants::ERR_MSG_CMD_DOES_NOT_EXIST = "Command doesn't e
 const std::string MenuConstants::MSG_TAG_OPEN_CMD = "(";
 const std::string MenuConstants::MSG_TAG_CLOSE_CMD = ")";
 const std::string MenuConstants::MSG_WHITE_SPACE = " ";
+const std::string MenuConstants::MSG_APOSTROPHE = "'";
+
+const std::string MenuConstants::SYMBOL_MENU_OPEN_TAG = "(";
+const std::string MenuConstants::SYMBOL_MENU_CLOSE_TAG = ")";
+const std::string MenuConstants::SYMBOL_MENU_CHILD_LIST_START = ";";
+const std::string MenuConstants::SYMBOL_ATTRIBUTE_SEPARATOR = ",";
+const std::string MenuConstants::SYMBOL_MENU_CMD_OPEN_TAG = "[";
+const std::string MenuConstants::SYMBOL_MENU_CMD_CLOSE_TAG = "]";
+const std::string MenuConstants::SYMBOL_VALUE_OPEN_TAG = "'";
+const std::string MenuConstants::SYMBOL_VALUE_CLOSE_TAG = "'";
+
+const std::string MenuConstants::PARSE_ERR_MSG_FAILED_AT = "Parsing failed at ";
+const std::string MenuConstants::PARSE_ERR_MSG_EXPECTED = ": Expected '";
+const std::string MenuConstants::PARSE_ERR_MSG_FOUND = "', but found '";
+const std::string MenuConstants::PARSE_ERR_MSG_INSTEAD = "' instead";
+const std::string MenuConstants::PARSE_ERR_MSG_MISSING_VALUE_CLOSE_TAG = ": Missing value close tag";
+const std::string MenuConstants::PARSE_ERR_MSG_UNKNOWN_CHILD = ": Found unknown child symbol";
