@@ -125,7 +125,7 @@ bool CMenu::bRun()
 	return b_exit_not_requested;
 } // void CMenu::bRun()
 
-std::string CMenu::sGetHelp()
+std::string CMenu::sGetHiddenCmdHelp()
 {
 	std::stringstream c_help_msg;
 	c_help_msg << MC::MSG_MENU_HIDDEN_CMD_HELP_MSG << std::endl;
@@ -135,7 +135,7 @@ std::string CMenu::sGetHelp()
 	c_help_msg << MC::CMD_BACK << std::endl;
 	c_help_msg << MC::CMD_EXIT << std::endl;
 	return c_help_msg.str();
-} // std::string CMenu::sGetHelp()
+} // std::string CMenu::sGetHiddenCmdHelp()
 
 std::string CMenu::sSerialize()
 {

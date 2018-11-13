@@ -14,7 +14,7 @@ public:
 
 	bool bRun() override;
 
-	std::string sGetHelp() override;
+	std::string sGetHiddenCmdHelp();
 
 	std::string sSerialize() override;
 

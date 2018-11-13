@@ -23,7 +23,7 @@ bool CMenuManager::bRun()
 	
 	if(i_deserialize_result != std::string::npos)
 	{
-		std::cout << std::endl << pc_root_menu->sGetHelp() << std::endl;
+		std::cout << std::endl << pc_root_menu->sGetHiddenCmdHelp() << std::endl;
 		pc_root_menu->bRun();
 	}
 	else
