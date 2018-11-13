@@ -19,7 +19,7 @@ public:
 
 	int iDeserialize(std::string& sInput, int iStartPosition, std::string& sErrorMsg) override;
 
-	void vSearch(std::vector<CMenuItem*>* pvFoundItems, const std::string& rsCmdToFind) override;
+	void vSearch(std::vector<CMenuItem*>& rvFoundItems, const std::string& rsCmdToFind) override;
 
 	bool bSetCCommand(CCommand* pcCommand);
 

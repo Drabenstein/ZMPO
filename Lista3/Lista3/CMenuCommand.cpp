@@ -152,11 +152,11 @@ int CMenuCommand::iDeserialize(std::string & sInput, int iCurrentPosition, std::
 	}
 } // int CMenuCommand::iDeserialize(std::string & sInput, int iStartPosition, std::string & sErrorMsg)
 
-void CMenuCommand::vSearch(std::vector<CMenuItem*>* pvFoundItems, const std::string & rsCmdToFind)
+void CMenuCommand::vSearch(std::vector<CMenuItem*>& pvFoundItems, const std::string & rsCmdToFind)
 {
 	if(sGetCommand() == rsCmdToFind)
 	{
-		pvFoundItems->push_back(this);
+		pvFoundItems.push_back(this);
 	}
 } // void CMenuCommand::vSearch(std::vector<CMenuItem*>* pvFoundItems, const std::string & rsCmdToFind)
 

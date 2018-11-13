@@ -73,19 +73,24 @@ bool CMenu::bRun()
 		if(s_user_command.substr(0, s_search_cmd_start.length()) == s_search_cmd_start)
 		{
 			std::string s_cmd_to_find = s_user_command.substr(s_search_cmd_start.length());
-			std::vector<CMenuItem*>* pv_found_items = pvInitSearch(s_cmd_to_find);
+			std::vector<CMenuItem*> pv_found_items;
+			pvInitSearch(pv_found_items, s_cmd_to_find);
 
-			for(int i = 0; i < pv_found_items->size(); i++)
+			for(int i = 0; i < pv_found_items.size(); i++)
 			{
-				std::cout << pv_found_items->at(i)->sGetPath() << std::endl;
+				std::cout << pv_found_items.at(i)->sGetPath() << std::endl;
 			}
 
 			std::cout << std::endl;
 
-			if(pv_found_items->size() == 0)
+			if(pv_found_items.size() == 0)
 			{
 				std::cout << MC::ERR_MSG_CMD_DOES_NOT_EXIST << std::endl << std::endl;
 			}
+		}
+		else if(s_user_command == MC::CMD_SERIALIZE)
+		{
+			std::cout << sInitSerialize() << std::endl << std::endl;
 		}
 		else if(s_user_command == MC::CMD_BACK)
 		{
@@ -233,18 +238,18 @@ int CMenu::iDeserialize(std::string & sInput, int iCurrentPosition, std::string 
 	}
 } // int CMenu::iDeserialize(std::string & sInput, int iCurrentPosition, std::string & sErrorMsg)
 
-void CMenu::vSearch(std::vector<CMenuItem*>* pvFoundItems, const std::string & rsCmdToFind)
+void CMenu::vSearch(std::vector<CMenuItem*>& rvFoundItems, const std::string & rsCmdToFind)
 {
 	if(sGetCommand() == rsCmdToFind)
 	{
-		pvFoundItems->push_back(this);
+		rvFoundItems.push_back(this);
 	}
 
 	for(int i = 0; i < v_menu_items.size(); i++)
 	{
-		v_menu_items.at(i)->vSearch(pvFoundItems, rsCmdToFind);
+		v_menu_items.at(i)->vSearch(rvFoundItems, rsCmdToFind);
 	}
-} // void CMenu::vSearch(std::vector<CMenuItem*>* pvFoundItems, const std::string & rsCmdToFind)
+} // void CMenu::vSearch(std::vector<CMenuItem*>* rvFoundItems, const std::string & rsCmdToFind)
 
 bool CMenu::bAddMenuItem(CMenuItem * pcMenuItem)
 {
@@ -293,21 +298,39 @@ CMenuItem * CMenu::makeCommand()
 	return new CMenuCommand();
 } // CMenuItem * CMenu::makeCommand()
 
+bool CMenu::b_is_restricted_cmd(CMenuItem * pcMenuItem)
+{
+	bool b_is_restricted = false;
+
+	if(pcMenuItem->sGetCommand() == MC::CMD_SERIALIZE
+		||pcMenuItem->sGetCommand() == MC::CMD_BACK
+		|| pcMenuItem->sGetCommand() == MC::CMD_EXIT)
+	{
+		b_is_restricted = true;
+	}
+
+	return b_is_restricted;
+} // bool CMenu::b_is_restricted_cmd(CMenuItem * pcMenuItem)
+
 bool CMenu::b_check_duplicate(CMenuItem * pcMenuItem)
 {
 	bool b_is_duplicate = false;
 
-	for (int i = 0; i < v_menu_items.size() && !b_is_duplicate; i++)
+	if (!b_is_restricted_cmd(pcMenuItem))
 	{
-		CMenuItem* pc_current_item = v_menu_items.at(i);
-		
-		if (pcMenuItem->sGetName() == pc_current_item->sGetName() 
-			|| pcMenuItem->sGetCommand() == pc_current_item->sGetCommand()
-			|| pcMenuItem->sGetCommand() == MC::CMD_HELP + MC::MSG_WHITE_SPACE + pc_current_item->sGetCommand())
+		for (int i = 0; i < v_menu_items.size() && !b_is_duplicate; i++)
 		{
-			b_is_duplicate = true;
-		}
-	} // for(int i = 0; i < v_menu_items.size() && !b_check_duplicate; i++)
+			CMenuItem* pc_current_item = v_menu_items.at(i);
+
+			if (pcMenuItem->sGetName() == pc_current_item->sGetName()
+				|| pcMenuItem->sGetCommand() == pc_current_item->sGetCommand()
+				|| pcMenuItem->sGetCommand() == MC::CMD_HELP + MC::MSG_WHITE_SPACE + pc_current_item->sGetCommand()
+				|| pcMenuItem->sGetCommand() == MC::CMD_SEARCH + MC::MSG_WHITE_SPACE + pc_current_item->sGetCommand())
+			{
+				b_is_duplicate = true;
+			}
+		} // for(int i = 0; i < v_menu_items.size() && !b_check_duplicate; i++) 
+	}
 
 	return b_is_duplicate;
 } // bool CMenu::b_check_duplicate(CMenuItem * pcMenuItem)

@@ -29,6 +29,7 @@ namespace MenuConstants
 	extern const std::string CMD_NAMES_MENU;
 	extern const std::string CMD_DELETION_MENU;
 	extern const std::string CMD_SEARCH;
+	extern const std::string CMD_SERIALIZE;
 	extern const std::string CMD_HELP;
 	extern const std::string CMD_BACK;
 	extern const std::string CMD_EXIT;
@@ -46,6 +47,7 @@ namespace MenuConstants
 	extern const std::string CMD_GET_INFO_MENU_CMD;
 	extern const std::string CMD_DELETE_TABLE_MENU_CMD;
 	extern const std::string CMD_DELETE_ALL_TABLES_MENU_CMD;
+	extern const std::string CMD_SERIALIZE_MENU_CMD;
 
 	extern const std::string MSG_EMPTY_CMD;
 	extern const std::string MSG_DEFAULT_CMD;

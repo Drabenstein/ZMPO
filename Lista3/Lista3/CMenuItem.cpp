@@ -40,17 +40,27 @@ std::string CMenuItem::sToString()
 	return c_result.str();
 } // std::string CMenuItem::sToString()
 
-std::vector<CMenuItem*>* CMenuItem::pvInitSearch(std::string& rsCmdToFind)
+std::string CMenuItem::sInitSerialize()
 {
 	if(pc_parent_item != nullptr)
 	{
-		return pc_parent_item->pvInitSearch(rsCmdToFind);
+		return pc_parent_item->sInitSerialize();
 	}
 	else
 	{
-		std::vector<CMenuItem*>* pvItemsFound = new std::vector<CMenuItem*>();
-		vSearch(pvItemsFound, rsCmdToFind);
-		return pvItemsFound;
+		return sSerialize();
+	}
+}
+
+void CMenuItem::pvInitSearch(std::vector<CMenuItem*>& rvFoundItems, std::string& rsCmdToFind)
+{
+	if(pc_parent_item != nullptr)
+	{
+		pc_parent_item->pvInitSearch(rvFoundItems, rsCmdToFind);
+	}
+	else
+	{
+		vSearch(rvFoundItems, rsCmdToFind);
 	}
 } // std::vector<CMenuItem*>* CMenuItem::pvInitSearch()
 

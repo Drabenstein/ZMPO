@@ -27,6 +27,7 @@ const std::string MenuConstants::CMD_VALUES_MENU = "values";
 const std::string MenuConstants::CMD_NAMES_MENU = "names";
 const std::string MenuConstants::CMD_DELETION_MENU = "delete";
 const std::string MenuConstants::CMD_SEARCH = "search";
+const std::string MenuConstants::CMD_SERIALIZE = "serialize";
 const std::string MenuConstants::CMD_HELP = "help";
 const std::string MenuConstants::CMD_BACK = "back";
 const std::string MenuConstants::CMD_EXIT = "exit";
