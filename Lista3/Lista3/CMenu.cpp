@@ -377,7 +377,7 @@ bool CMenu::b_get_parse_value(std::string& rsInput, int& riCurrentPosition, std:
 		{
 			std::ostringstream c_error_msg;
 			c_error_msg << MC::PARSE_ERR_MSG_FAILED_AT;
-			c_error_msg << rsInput.substr(riCurrentPosition);
+			c_error_msg << riCurrentPosition;/*rsInput.substr(riCurrentPosition);*/
 			c_error_msg << MC::PARSE_ERR_MSG_MISSING_VALUE_CLOSE_TAG;
 			c_error_msg << MC::PARSE_ERR_MSG_EXPECTED;
 			c_error_msg << MC::SYMBOL_VALUE_CLOSE_TAG;
