@@ -32,6 +32,7 @@ public:
 
 	static const std::string DEFAULT_NAME;
 	static const std::string DEFAULT_CMD;
+	static const std::string DEFAULT_HELP_MSG;
 
 protected:
 	virtual CMenuItem* pc_make_command();
@@ -43,4 +44,5 @@ private:
 	bool b_check_duplicate(CMenuItem* pcMenuItem);
 	std::string s_construct_parse_error_msg(std::string sInput, std::string sExpectedValue, int& riCurrentPos);
 	bool b_get_parse_value(std::string& rsInput, int& riCurrentPosition, std::string& rsResult, std::string& rsErrMsg);
+	bool b_validate_child_cmd(std::string& rsInput, int& riCurrentPosition, std::string& rsExpectedValue, std::string& rsErrMsg);
 };

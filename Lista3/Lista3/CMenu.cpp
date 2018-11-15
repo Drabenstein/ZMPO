@@ -7,14 +7,15 @@
 
 const std::string CMenu::DEFAULT_NAME = "Default Menu";
 const std::string CMenu::DEFAULT_CMD = "DefaultMenuCmd";
+const std::string CMenu::DEFAULT_HELP_MSG = "Default help for menu";
 
 namespace MC = MenuConstants;
 
-CMenu::CMenu() : CMenuItem(DEFAULT_NAME, DEFAULT_CMD, nullptr, nullptr)
+CMenu::CMenu() : CMenuItem(DEFAULT_NAME, DEFAULT_CMD, DEFAULT_HELP_MSG, nullptr, nullptr)
 {
 } // CMenu::CMenu()
 
-CMenu::CMenu(std::string sName, std::string sCommand, CMenuItem* pcParentItem, bool * pbSuccess) : CMenuItem(sName, sCommand, pcParentItem, pbSuccess)
+CMenu::CMenu(std::string sName, std::string sCommand, CMenuItem* pcParentItem, bool * pbSuccess) : CMenuItem(sName, sCommand, DEFAULT_HELP_MSG, pcParentItem, pbSuccess)
 {
 } // CMenu::CMenu(std::string sName, std::string sCommand, CMenuItem* pcParentItem, bool * pbSuccess) : CMenuItem(sName, sCommand, pcParentItem, pbSuccess) 
 
@@ -154,13 +155,16 @@ std::string CMenu::sSerialize()
 
 	c_result << MC::SYMBOL_MENU_CHILD_LIST_START;
 
-	for(int i = 0; i + 1 < v_menu_items.size(); i++)
+	if (v_menu_items.size() > 0)
 	{
-		c_result << v_menu_items.at(i)->sSerialize();
-		c_result << MC::SYMBOL_ATTRIBUTE_SEPARATOR;
-	} // for(int i = 0; i + 1 < v_menu_items.size(); i++)
+		for (int i = 0; i < v_menu_items.size() - 1; i++)
+		{
+			c_result << v_menu_items.at(i)->sSerialize();
+			c_result << MC::SYMBOL_ATTRIBUTE_SEPARATOR;
+		} // for(int i = 0; i + 1 < v_menu_items.size(); i++)
 
-	c_result << v_menu_items.at(v_menu_items.size() - 1)->sSerialize();
+		c_result << v_menu_items.at(v_menu_items.size() - 1)->sSerialize();
+	}
 
 	c_result << MC::SYMBOL_MENU_CLOSE_TAG;
 
@@ -229,6 +233,27 @@ int CMenu::iDeserialize(std::string & rsInput, int iCurrentPosition, std::string
 				v_menu_items.push_back(pc_new_child);
 
 				if(c_string_helper.bStartsWith(rsInput.substr(iCurrentPosition), MC::SYMBOL_ATTRIBUTE_SEPARATOR))
+				{
+					iCurrentPosition += MC::SYMBOL_ATTRIBUTE_SEPARATOR.length();
+				}
+				else
+				{
+					std::string s_expected_value = MC::SYMBOL_ATTRIBUTE_SEPARATOR + MC::SYMBOL_VALUE_OPEN_TAG
+						+ pc_new_child->sGetCommand() + MC::SYMBOL_VALUE_CLOSE_TAG;
+					rsErrorMsg = s_construct_parse_error_msg(rsInput, s_expected_value, iCurrentPosition);
+					return std::string::npos;
+				}
+
+				std::string s_expected_cmd_value = pc_new_child->sGetCommand();
+				bool b_cmd_validation_success = b_validate_child_cmd(rsInput, iCurrentPosition,
+					s_expected_cmd_value, rsErrorMsg);
+
+				if(!b_cmd_validation_success)
+				{
+					return std::string::npos;
+				}
+
+				if (c_string_helper.bStartsWith(rsInput.substr(iCurrentPosition), MC::SYMBOL_ATTRIBUTE_SEPARATOR))
 				{
 					iCurrentPosition += MC::SYMBOL_ATTRIBUTE_SEPARATOR.length();
 				}
@@ -394,3 +419,22 @@ bool CMenu::b_get_parse_value(std::string& rsInput, int& riCurrentPosition, std:
 		return false;
 	}
 } // bool CMenu::b_get_parse_value(std::string& rsInput, int& riCurrentPosition, std::string& rsResult, std::string& rsErrMsg)
+
+bool CMenu::b_validate_child_cmd(std::string & rsInput, int & riCurrentPosition, std::string& rsExpectedValue, std::string & rsErrMsg)
+{
+	CStringHelper c_string_helper;
+	std::string s_cmd_value;
+	int i_start_position = riCurrentPosition;
+	bool b_success = b_get_parse_value(rsInput, riCurrentPosition, s_cmd_value, rsErrMsg);
+
+	if(b_success)
+	{
+		if(s_cmd_value != rsExpectedValue)
+		{
+			b_success = false;
+			rsErrMsg = s_construct_parse_error_msg(rsInput, rsExpectedValue, i_start_position);
+		}
+	}
+
+	return b_success;
+}
