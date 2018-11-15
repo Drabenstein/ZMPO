@@ -8,7 +8,7 @@ class CMenu : public CMenuItem
 public:
 	CMenu();
 
-	CMenu(std::string sName, std::string sCommand, CMenuItem* pcParentItem, bool * bSuccess);
+	CMenu(std::string sName, std::string sCommand, CMenuItem* pcParentItem, bool * pbSuccess);
 
 	virtual ~CMenu();
 
@@ -18,7 +18,7 @@ public:
 
 	std::string sSerialize() override;
 
-	int iDeserialize(std::string& sInput, int iCurrentPosition, std::string& sErrorMsg) override;
+	int iDeserialize(std::string& rsInput, int iCurrentPosition, std::string& rsErrorMsg) override;
 
 	void vSearch(std::vector<CMenuItem*>& rvFoundItems, const std::string& rsCmdToFind) override;
 
@@ -41,6 +41,6 @@ private:
 
 	bool b_is_restricted_cmd(CMenuItem* pcMenuItem);
 	bool b_check_duplicate(CMenuItem* pcMenuItem);
-	std::string s_construct_parse_error_msg(std::string sInput, std::string sExpectedValue, int& iCurrentPos);
-	bool b_get_parse_value(std::string& sInput, int& iCurrentPosition, std::string& sResult, std::string& sErrMsg);
+	std::string s_construct_parse_error_msg(std::string sInput, std::string sExpectedValue, int& riCurrentPos);
+	bool b_get_parse_value(std::string& rsInput, int& riCurrentPosition, std::string& rsResult, std::string& rsErrMsg);
 };

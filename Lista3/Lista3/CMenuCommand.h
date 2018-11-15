@@ -6,10 +6,10 @@ class CMenuCommand : public CMenuItem
 {
 public:
 	CMenuCommand();
-	CMenuCommand(std::string sName, std::string sCommand, std::string sHelpMsg, CMenuItem* pcParentItem, bool* bSuccess);
-	CMenuCommand(std::string sName, std::string sCommand, std::string sHelpMsg, CMenuItem* pcParentItem, CCommand* pcCommand, bool * bSuccess);
-	CMenuCommand(std::string sName, std::string sCommand, std::string sHelpMsg, bool* bSuccess);
-	CMenuCommand(std::string sName, std::string sCommand, std::string sHelpMsg, CCommand* pcCommand, bool * bSuccess);
+	CMenuCommand(std::string sName, std::string sCommand, std::string sHelpMsg, CMenuItem* pcParentItem, bool* pbSuccess);
+	CMenuCommand(std::string sName, std::string sCommand, std::string sHelpMsg, CMenuItem* pcParentItem, CCommand* pcCommand, bool * pbSuccess);
+	CMenuCommand(std::string sName, std::string sCommand, std::string sHelpMsg, bool* pbSuccess);
+	CMenuCommand(std::string sName, std::string sCommand, std::string sHelpMsg, CCommand* pcCommand, bool * pbSuccess);
 
 	virtual ~CMenuCommand();
 
@@ -17,7 +17,7 @@ public:
 
 	std::string sSerialize() override;
 
-	int iDeserialize(std::string& sInput, int iStartPosition, std::string& sErrorMsg) override;
+	int iDeserialize(std::string& rsInput, int iStartPosition, std::string& rsErrorMsg) override;
 
 	void vSearch(std::vector<CMenuItem*>& rvFoundItems, const std::string& rsCmdToFind) override;
 
@@ -30,6 +30,6 @@ public:
 private:
 	CCommand* pc_command;
 
-	std::string s_construct_parse_error_msg(std::string& sInput, std::string sExpectedValue, int& iCurrentPos);
-	bool b_get_parse_value(std::string& sInput, int& iCurrentPosition, std::string& sResult, std::string& sErrMsg);
+	std::string s_construct_parse_error_msg(std::string& rsInput, std::string sExpectedValue, int& riCurrentPos);
+	bool b_get_parse_value(std::string& rsInput, int& riCurrentPosition, std::string& rsResult, std::string& rsErrMsg);
 };

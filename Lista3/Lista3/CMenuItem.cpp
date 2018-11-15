@@ -3,29 +3,29 @@
 #include "MenuConstants.h"
 #include <sstream>
 
-CMenuItem::CMenuItem(std::string sName, std::string sCommand, CMenuItem* pcParentItem, bool * bSuccess)
+CMenuItem::CMenuItem(std::string sName, std::string sCommand, CMenuItem* pcParentItem, bool * pbSuccess)
 {
 	s_name = sName;
 	s_command = sCommand;
 	pc_parent_item = pcParentItem;
 	s_help_msg = std::string();
-	if (bSuccess != nullptr)
+	if (pbSuccess != nullptr)
 	{
-		*bSuccess = s_command.length() > 0;
+		*pbSuccess = s_command.length() > 0;
 	}
-} // CMenuItem::CMenuItem(std::string sName, std::string sCommand, bool * bSuccess)
+} // CMenuItem::CMenuItem(std::string sName, std::string sCommand, bool * pbSuccess)
 
-CMenuItem::CMenuItem(std::string sName, std::string sCommand, std::string sHelpMsg, CMenuItem * pcParentItem, bool * bSuccess)
+CMenuItem::CMenuItem(std::string sName, std::string sCommand, std::string sHelpMsg, CMenuItem * pcParentItem, bool * pbSuccess)
 {
 	s_name = sName;
 	s_command = sCommand;
 	pc_parent_item = pcParentItem;
 	s_help_msg = sHelpMsg;
-	if (bSuccess != nullptr)
+	if (pbSuccess != nullptr)
 	{
-		*bSuccess = s_command.length() > 0;
+		*pbSuccess = s_command.length() > 0;
 	}
-} // CMenuItem::CMenuItem(std::string sName, std::string sCommand, std::string sHelpMsg, CMenuItem * pcParentItem, bool * bSuccess)
+} // CMenuItem::CMenuItem(std::string sName, std::string sCommand, std::string sHelpMsg, CMenuItem * pcParentItem, bool * pbSuccess)
 
 std::string CMenuItem::sGetHelp()
 {
@@ -50,7 +50,7 @@ std::string CMenuItem::sInitSerialize()
 	{
 		return sSerialize();
 	}
-}
+} // std::string CMenuItem::sInitSerialize()
 
 void CMenuItem::pvInitSearch(std::vector<CMenuItem*>& rvFoundItems, std::string& rsCmdToFind)
 {
@@ -62,7 +62,7 @@ void CMenuItem::pvInitSearch(std::vector<CMenuItem*>& rvFoundItems, std::string&
 	{
 		vSearch(rvFoundItems, rsCmdToFind);
 	}
-} // std::vector<CMenuItem*>* CMenuItem::pvInitSearch()
+} // void CMenuItem::pvInitSearch(std::vector<CMenuItem*>& rvFoundItems, std::string& rsCmdToFind)
 
 std::string CMenuItem::sGetPath()
 {

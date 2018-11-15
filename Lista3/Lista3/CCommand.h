@@ -7,5 +7,5 @@ public:
 	virtual bool bRunCommand(std::string * psResponseMsg);
 
 protected:
-	virtual void vSetResponse(std::string * psResponse, const std::string & psMsg);
+	virtual void vSetResponse(std::string * psResponse, const std::string & rsMsg);
 };

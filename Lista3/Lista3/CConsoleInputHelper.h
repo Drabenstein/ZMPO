@@ -2,12 +2,7 @@
 
 class CConsoleInputHelper
 {
-private:
-	bool b_readTableIndex(int * piIndex) const;
-
 public:
-	static const CConsoleInputHelper& rcGetInstance();
-
 	bool bReadTableIndex(int * piTableIndex) const;
 
 	bool bReadValueIndex(int * piValueIndex) const;
@@ -15,4 +10,7 @@ public:
 	bool bReadTableLength(int * piTableLength) const;
 
 	bool bReadValue(int * piValue) const;
+
+private:
+	bool b_readTableIndex(int * piIndex) const;
 };

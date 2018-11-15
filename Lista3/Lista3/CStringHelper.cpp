@@ -14,7 +14,7 @@ bool CStringHelper::bStartsWith(std::string sText, std::string sToken)
 		{
 			return false;
 		}
-	}
+	} // for(int i = 0; i < sToken.length(); i++)
 
 	return true;
 } // bool CStringHelper::bStartsWith(std::string sToken)

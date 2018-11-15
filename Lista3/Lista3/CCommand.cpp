@@ -9,10 +9,10 @@ bool CCommand::bRunCommand(std::string * psResponseMsg)
 	return true;
 } // bool CCommand::bRunCommand(std::string * psResponseMsg)
 
-void CCommand::vSetResponse(std::string * psResponse, const std::string & psMsg)
+void CCommand::vSetResponse(std::string * psResponse, const std::string & rsMsg)
 {
 	if(psResponse != nullptr)
 	{
-		*psResponse = psMsg;
+		*psResponse = rsMsg;
 	}
-} // void CCommand::vSetResponse(std::string * psResponse, const std::string & psMsg)
+} // void CCommand::vSetResponse(std::string * psResponse, const std::string & rsMsg)
