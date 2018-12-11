@@ -155,6 +155,8 @@
     <ClInclude Include="CGeneticAlgorithm.h" />
     <ClInclude Include="CIndividual.h" />
     <ClInclude Include="CKnapsackProblem.h" />
+    <ClInclude Include="ExperimentConstants.h" />
+    <ClInclude Include="KnapsackProblemErrorCodes.h" />
     <ClInclude Include="CProblem.h" />
     <ClInclude Include="CRandomGenerator.h" />
     <ClInclude Include="CSubject.h" />

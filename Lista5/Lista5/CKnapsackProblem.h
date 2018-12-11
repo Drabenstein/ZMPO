@@ -5,8 +5,16 @@
 class CKnapsackProblem : public CProblem
 {
 public:
+	static const double MIN_PROBABILITY;
+	static const double MAX_PROBABILITY;
+	static const double DEFAULT_MUTATION_PROBABILITY;
+	static const double DEFAULT_CROSSOVER_PROBABILITY;
+	static const double MIN_MAX_SIZE;
+	static const int MIN_POP_SIZE;
+	static const int MIN_ITERATIONS;
+
 	CKnapsackProblem(std::vector<CSubject*>& pvSubjects, int iPopSize, double dMutationProb, 
-		double dCrossoverProb, double dMaxSize, int iIterations);
+		double dCrossoverProb, double dMaxSize, int iIterations, int& riErrorCode);
 
 	~CKnapsackProblem();
 
@@ -24,4 +32,7 @@ private:
 	int i_iterations;
 	std::vector<CSubject*> v_subjects;
 	CGeneticAlgorithm* pc_algorithm;
+
+	bool b_is_probability_correct(double dProbability);
+	int i_validate_parameters();
 };

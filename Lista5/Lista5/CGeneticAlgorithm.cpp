@@ -206,10 +206,5 @@ void CGeneticAlgorithm::v_clear_population(std::vector<CIndividual*>& rvPopulati
 
 bool CGeneticAlgorithm::b_is_probability_correct(double dProbability)
 {
-	if (dProbability < MIN_PROBABILITY || dProbability > MAX_PROBABILITY)
-	{
-		return false;
-	}
-
-	return true;
+	return dProbability < MIN_PROBABILITY || dProbability > MAX_PROBABILITY;
 } // bool CGeneticAlgorithm::b_is_probability_correct(double dProbability)
