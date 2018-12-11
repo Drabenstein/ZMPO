@@ -16,7 +16,9 @@ int main()
 
 	for(int i = 0; i < KNAPSACK_ITEMS_COUNT; i++)
 	{
-		v_subjects.push_back(new CSubject(pc_values_generator->dNextDouble(), pc_sizes_generator->dNextDouble()));
+		CSubject* pc_new_subject = new CSubject(pc_values_generator->dNextDouble(), pc_sizes_generator->dNextDouble());
+		v_subjects.push_back(pc_new_subject);
+		std::cout << pc_new_subject->sToString() << std::endl;
 	} // for(int i = 0; i < KNAPSACK_ITEMS_COUNT; i++)
 
 	delete pc_values_generator;
@@ -76,4 +78,9 @@ int main()
 	std::cout << std::endl;
 
 	delete pc_problem;
+
+	for(int i = 0; i < v_subjects.size(); i++)
+	{
+		delete v_subjects[i];
+	}
 }

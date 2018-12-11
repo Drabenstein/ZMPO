@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 class CSubject
 {
@@ -7,6 +8,8 @@ public:
 
 	double dGetValue() { return d_value; }
 	double dGetSize() { return d_size; }
+
+	std::string sToString();
 
 private:
 	double d_value;

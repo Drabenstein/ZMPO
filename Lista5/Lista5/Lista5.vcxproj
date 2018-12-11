@@ -167,6 +167,7 @@
     <ClCompile Include="CIndividual.cpp" />
     <ClCompile Include="CKnapsackProblem.cpp" />
     <ClCompile Include="CRandomGenerator.cpp" />
+    <ClCompile Include="CSubject.cpp" />
     <ClCompile Include="Lista5.cpp" />
     <ClCompile Include="pch.cpp" />
   </ItemGroup>
