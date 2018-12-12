@@ -19,4 +19,6 @@ static const std::string ERR_MSG_INVALID_POPULATION_SIZE = "Invalid population s
 static const std::string ERR_MSG_INVALID_SUBJECT_VALUE = "At least one of the subjects has invalid value";
 static const std::string ERR_MSG_INVALID_SUBJECT_SIZE = "At least one of the subjects has invalid size";
 static const std::string ERR_MSG_INVALID_MAX_SIZE = "Invalid knapsack's capacity";
+static const std::string ERR_MSG_INVALID_TOURNAMENT_SIZE = "Invalid tournament size";
 static const std::string ERR_MSG_UNKNOWN_ERROR = "Unknown error";
+static const std::string ERR_MSG_NO_BEST_RESULT = "The best result could not be found";

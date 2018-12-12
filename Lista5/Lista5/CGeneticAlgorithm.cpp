@@ -65,7 +65,7 @@ bool CGeneticAlgorithm::bRun()
 	} // for (int i = 0; i < i_iterations_max; i++)
 
 	return true;
-} // bool CGeneticAlgorithm::bRun()
+} // bool CGeneticAlgorithm::vRun()
 
 const std::vector<int>* CGeneticAlgorithm::pvGetBestResult()
 {
