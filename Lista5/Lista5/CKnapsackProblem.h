@@ -12,9 +12,10 @@ public:
 	static const double MIN_MAX_SIZE;
 	static const int MIN_POP_SIZE;
 	static const int MIN_ITERATIONS;
+	static const int MIN_TOURNAMENT_SIZE;
 
-	CKnapsackProblem(std::vector<CSubject*>& pvSubjects, int iPopSize, double dMutationProb, 
-		double dCrossoverProb, double dMaxSize, int iIterations, int& riErrorCode);
+	CKnapsackProblem(std::vector<CSubject*>& pvSubjects, int iPopSize, int iTournamentSize, 
+		double dMutationProb, double dCrossoverProb, double dMaxSize, int iIterations, int& riErrorCode);
 
 	~CKnapsackProblem();
 

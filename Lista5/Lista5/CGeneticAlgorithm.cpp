@@ -162,22 +162,23 @@ bool CGeneticAlgorithm::b_crossover(std::vector<CIndividual*>& rvNewPopulation)
 
 CIndividual * CGeneticAlgorithm::pc_run_tournament()
 {
-	CIndividual* pc_first_participant = v_population.at(pc_random->iNextInt(v_population.size()));
-	CIndividual* pc_second_participant = v_population.at(pc_random->iNextInt(v_population.size()));
+	CIndividual* pc_best_participant = nullptr;
+	double d_best_participant_fitness = 0.0;
 
-	double d_first_fitness;
-	double d_second_fitness;
-	pc_first_participant->bCalculateFitness(d_first_fitness);
-	pc_second_participant->bCalculateFitness(d_second_fitness);
+	for(int i = 0; i < pc_problem->iGetTournamentSize(); i++)
+	{
+		int i_random_index = pc_random->iNextInt(v_population.size());
+		double d_current_fitness = 0.0;
+		bool b_calculate_success = v_population.at(i_random_index)->bCalculateFitness(d_current_fitness);
 
-	if (d_first_fitness >= d_second_fitness)
-	{
-		return pc_first_participant;
-	}
-	else
-	{
-		return pc_second_participant;
-	}
+		if(pc_best_participant == nullptr || (b_calculate_success && d_best_participant_fitness < d_current_fitness))
+		{
+			pc_best_participant = v_population.at(i_random_index);
+			d_best_participant_fitness = d_current_fitness;
+		}
+	} // for(int i = 0; i < pc_problem->iGetTournamentSize(); i++)
+
+	return pc_best_participant;
 } // CIndividual * CGeneticAlgorithm::pc_run_tournament()
 
 void CGeneticAlgorithm::v_mutatation()

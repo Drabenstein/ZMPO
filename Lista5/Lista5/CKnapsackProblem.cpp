@@ -9,10 +9,11 @@ const double CKnapsackProblem::DEFAULT_CROSSOVER_PROBABILITY = 0.6;
 const double CKnapsackProblem::MIN_MAX_SIZE = 0.0;
 const int CKnapsackProblem::MIN_POP_SIZE = 4;
 const int CKnapsackProblem::MIN_ITERATIONS = 1;
+const int CKnapsackProblem::MIN_TOURNAMENT_SIZE = 2;
 
-CKnapsackProblem::CKnapsackProblem(std::vector<CSubject*>& pvSubjects,
-	int iPopSize, double dMutationProb, double dCrossoverProb, double dMaxSize, int iIterations, int& riErrorCode)
-	: CProblem(iPopSize)
+CKnapsackProblem::CKnapsackProblem(std::vector<CSubject*>& pvSubjects, int iPopSize, int iTournamentSize,
+	double dMutationProb, double dCrossoverProb, double dMaxSize, int iIterations, int& riErrorCode)
+	: CProblem(iPopSize, iTournamentSize)
 {
 	i_iterations = iIterations;
 	d_max_size = dMaxSize;
@@ -25,7 +26,7 @@ CKnapsackProblem::CKnapsackProblem(std::vector<CSubject*>& pvSubjects,
 	for(int i = 0; i < pvSubjects.size(); i++)
 	{
 		v_subjects.push_back(pvSubjects[i]);
-	}
+	} // for(int i = 0; i < pvSubjects.size(); i++)
 } // CKnapsackProblem::CKnapsackProblem(CGeneticAlgorithm* pcAlgorithm, std::vector<CSubject*>& pvSubjects, int iPopSize, double dMutationProb, double dCrossoverProb, double dMaxSize, int iIterations)	: CProblem(pcAlgorithm, iPopSize)
 
 CKnapsackProblem::~CKnapsackProblem()
@@ -118,6 +119,10 @@ int CKnapsackProblem::i_validate_parameters()
 	{
 		i_error_code = ERR_INVALID_POP_SIZE;
 	}
+	else if(i_tournament_size < MIN_TOURNAMENT_SIZE)
+	{
+		i_error_code = ERR_INVALID_TOURNAMENT_SIZE;
+	}
 	else
 	{
 		for (int i = 0; i < v_subjects.size(); i++)
@@ -133,7 +138,7 @@ int CKnapsackProblem::i_validate_parameters()
 					i_error_code = ERR_INVALID_SUBJECT_VALUE;
 				}
 			}
-		}
+		} // for (int i = 0; i < v_subjects.size(); i++)
 	}
 
 	return i_error_code;

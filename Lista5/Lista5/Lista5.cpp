@@ -25,8 +25,8 @@ int main()
 	delete pc_sizes_generator;
 
 	int i_error_code;
-	CKnapsackProblem* pc_problem = new CKnapsackProblem(v_subjects, POP_SIZE, MUTATION_PROBABILITY,
-		CROSSOVER_PROBABILITY, KNAPSACK_CAPACITY, ITERATIONS_NUM, i_error_code);
+	CKnapsackProblem* pc_problem = new CKnapsackProblem(v_subjects, POP_SIZE, TOURNAMENT_SIZE,
+		MUTATION_PROBABILITY, CROSSOVER_PROBABILITY, KNAPSACK_CAPACITY, ITERATIONS_NUM, i_error_code);
 	if (i_error_code == ERR_NO_ERROR)
 	{
 		pc_problem->bStartAlgorithm();

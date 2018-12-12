@@ -8,3 +8,4 @@ static const int ERR_INVALID_MAX_SIZE = 4;
 static const int ERR_INVALID_POP_SIZE = 5;
 static const int ERR_INVALID_SUBJECT_SIZE = 6;
 static const int ERR_INVALID_SUBJECT_VALUE = 7;
+static const int ERR_INVALID_TOURNAMENT_SIZE = 8;
