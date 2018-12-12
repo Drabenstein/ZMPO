@@ -115,7 +115,7 @@ int CKnapsackProblem::i_validate_parameters()
 	{
 		i_error_code = ERR_INVALID_MAX_SIZE;
 	}
-	else if(i_population_size < MIN_POP_SIZE)
+	else if(i_population_size < MIN_POP_SIZE || i_population_size % 2 != 0)
 	{
 		i_error_code = ERR_INVALID_POP_SIZE;
 	}
