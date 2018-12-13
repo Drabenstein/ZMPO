@@ -77,3 +77,33 @@ std::vector<int>& CIndividual::rvGetGenotype()
 {
 	return v_genotype;
 } // std::vector<int>& CIndividual::rvGetGenotype()
+
+bool CIndividual::bMutateByInversion(int iStartIndex, int iEndIndex)
+{
+	if(iStartIndex < 1 || iStartIndex >= v_genotype.size())
+	{
+		return false;
+	}
+	else if(iEndIndex < 1 || iEndIndex >= v_genotype.size())
+	{
+		return false;
+	}
+	else if(iEndIndex <= iStartIndex)
+	{
+		return false;
+	}
+
+	for(int i = iStartIndex, j = iEndIndex; i <= j; i++, j--)
+	{
+		v_swap_gens(i, j);
+	} // for(int i = iStartIndex, j = iEndIndex; i <= j; i++, j--)
+
+	return true;
+} // bool CIndividual::bMutateByInversion(int iStartIndex, int iEndIndex)
+
+void CIndividual::v_swap_gens(int iFirstGenIndex, int iSecondGenIndex)
+{
+	int i_temp = v_genotype[iFirstGenIndex];
+	v_genotype[iFirstGenIndex] = v_genotype[iSecondGenIndex];
+	v_genotype[iSecondGenIndex] = i_temp;
+} // void CIndividual::v_swap_gens(int iFirstGenIndex, int iSecondGenIndex)

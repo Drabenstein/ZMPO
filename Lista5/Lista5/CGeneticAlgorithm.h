@@ -40,4 +40,6 @@ private:
 	void v_mutatation();
 	void v_clear_population(std::vector<CIndividual*>& rvPopulationToDel);
 	bool b_is_probability_correct(double dProbability);
+
+	void v_mutation_inversion();
 };

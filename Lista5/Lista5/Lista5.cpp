@@ -9,4 +9,4 @@ int main()
 	CExperimentManager* pc_manager = new CExperimentManager();
 	pc_manager->vRun();
 	delete pc_manager;
-}
+} // int main()

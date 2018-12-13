@@ -18,7 +18,14 @@ void CExperimentManager::vRun()
 {
 	v_clear_instance();
 
-	v_initialize_subjects();
+	if (TESTABLE_DATA)
+	{
+		v_prepare_testable_data();
+	}
+	else
+	{
+		v_initialize_subjects();
+	}
 
 	for(int i = 0; i < v_subjects.size(); i++)
 	{
@@ -85,6 +92,16 @@ void CExperimentManager::vRun()
 
 	delete pc_problem;
 } // bool CExperimentManager::vRun()
+
+void CExperimentManager::v_prepare_testable_data()
+{
+	v_clear_instance();
+	
+	for(int i = 1; i <= KNAPSACK_ITEMS_COUNT; i++)
+	{
+		v_subjects.push_back(new CSubject(i, i));
+	} // for(int i = 0; i < KNAPSACK_ITEMS_COUNT; i++)
+} // void CExperimentManager::v_prepare_testable_data()
 
 void CExperimentManager::v_initialize_subjects()
 {

@@ -61,7 +61,8 @@ bool CGeneticAlgorithm::bRun()
 
 		v_clear_population(v_population);
 		v_population = v_new_population;
-		v_mutatation();
+		//v_mutatation();
+		v_mutation_inversion();
 	} // for (int i = 0; i < i_iterations_max; i++)
 
 	return true;
@@ -209,3 +210,24 @@ bool CGeneticAlgorithm::b_is_probability_correct(double dProbability)
 {
 	return dProbability < MIN_PROBABILITY || dProbability > MAX_PROBABILITY;
 } // bool CGeneticAlgorithm::b_is_probability_correct(double dProbability)
+
+void CGeneticAlgorithm::v_mutation_inversion()
+{
+	for (int i = 0; i < v_population.size(); i++)
+	{
+		double d_mutation_random = pc_random->dNextDouble();
+
+		if (d_mutation_random < d_mutation_probability)
+		{
+			bool b_mutation_success = false;
+
+			do
+			{
+				int i_mutation_start_index = pc_random->iNextInt(v_population[i]->rvGetGenotype().size() - 1) + 1;
+				int i_mutation_end_index = pc_random->iNextInt(v_population[i]->rvGetGenotype().size() - 1) + 1;
+
+				b_mutation_success = v_population[i]->bMutateByInversion(i_mutation_start_index, i_mutation_end_index);
+			} while (!b_mutation_success);
+		}
+	} // for (int i = 0; i < v_population.size(); i++)
+} // void CGeneticAlgorithm::v_mutation_inversion()

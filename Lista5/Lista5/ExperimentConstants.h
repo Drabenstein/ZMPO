@@ -4,13 +4,14 @@ static const double MIN_ITEM_VALUE = 1.0;
 static const double MAX_ITEM_VALUE = 20.0;
 static const double MIN_ITEM_SIZE = 1.0;
 static const double MAX_ITEM_SIZE = 10.0;
-static const int KNAPSACK_ITEMS_COUNT = 10;
+static const int KNAPSACK_ITEMS_COUNT = 6;
 static const int POP_SIZE = 10;
 static const int TOURNAMENT_SIZE = 2;
 static const int ITERATIONS_NUM = 1000;
 static const double MUTATION_PROBABILITY = 0.1;
 static const double CROSSOVER_PROBABILITY = 0.6;
 static const double KNAPSACK_CAPACITY = 10.0;
+static const bool TESTABLE_DATA = true;
 
 static const std::string ERR_MSG_INVALID_CROSSOVER_PROBABILITY = "Invalid crossover probability value";
 static const std::string ERR_MSG_INVALID_MUTATION_PROBABILITY = "Invalid mutation probability value";

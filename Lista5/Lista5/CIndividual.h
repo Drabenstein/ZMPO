@@ -15,7 +15,11 @@ public:
 	bool bCrossover(CIndividual& rcOtherParent, int iSplitPoint, std::vector<CIndividual*>& rvResult);
 	std::vector<int>& rvGetGenotype();
 
+	bool bMutateByInversion(int iStartIndex, int iEndIndex);
+
 private:
 	std::vector<int> v_genotype;
 	CProblem* pc_problem;
+
+	void v_swap_gens(int iFirstGenIndex, int iSecondGenIndex);
 };
