@@ -1,8 +1,8 @@
 #pragma once
 
 
-static const int BASE_DAY = 23;
-static const int BASE_MONTH = 1;
+static const int BASE_DAY = 22;
+static const int BASE_MONTH = 6;
 static const int BASE_YEAR = 2019;
 static const int BASE_HOUR = 12;
 static const int BASE_MINUTES = 0;
@@ -31,6 +31,7 @@ static const std::string MSG_HOURS_IS = " hours is ";
 static const std::string MSG_DATE_AFTER_SUBTRACTING = "Date after subtracting ";
 static const std::string MSG_DIFFERENCE_BETWEEN = "Difference between base and second sample is ";
 static const std::string MSG_MINUTES = " minutes";
+static const std::string MSG_IS_WEEKEND = "Is base weekend? ";
 
 static const int W_YEAR = 4;
 static const int W_MONTH = 2;

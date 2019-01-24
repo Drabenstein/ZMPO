@@ -31,6 +31,8 @@ public:
 	int iGetMonth();
 	int iGetDay();
 
+	bool bIsWeekend();
+
 	virtual std::string sToString(char cDateSeparator);
 
 protected:
@@ -68,4 +70,8 @@ private:
 	static const int LEAP_YEAR_DIV_BY_FOUR;
 	static const int LEAP_YEAR_DIV_BY_ONE_HUNDRED;
 	static const int LEAP_YEAR_DIV_BY_FOUR_HUNDREDS;
+	static const int WEEK_DAYS;
+	static const int SUNDAY_INDEX;
+	static const int SATURDAY_INDEX;
+	static const int SAKOMOTO_MONTH_START;
 };

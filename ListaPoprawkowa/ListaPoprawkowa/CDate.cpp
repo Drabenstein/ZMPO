@@ -22,6 +22,11 @@ const int CDate::LEAP_YEAR_DIV_BY_FOUR = 4;
 const int CDate::LEAP_YEAR_DIV_BY_ONE_HUNDRED = 100;
 const int CDate::LEAP_YEAR_DIV_BY_FOUR_HUNDREDS = 400;
 
+const int CDate::WEEK_DAYS = 7;
+const int CDate::SUNDAY_INDEX = 0;
+const int CDate::SATURDAY_INDEX = 1;
+const int CDate::SAKOMOTO_MONTH_START = 3;
+
 const std::vector<int> CDate::v_normal_year_days_to_month = v_init_year_days(false);
 const std::vector<int> CDate::v_leap_year_days_to_month = v_init_year_days(true);
 
@@ -119,6 +124,17 @@ int CDate::iGetDay()
 	return ++l_remaining_days;
 } // int CDate::iGetDay()
 
+bool CDate::bIsWeekend()
+{
+	long l_year = lGetYear();
+	int i_month = iGetMonth();
+	int i_day = iGetDay();
+	static int pi_sakamoto[] = { 0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4 };
+	l_year -= i_month < SAKOMOTO_MONTH_START;
+	int i_day_of_week = ((l_year + l_leap_years_before(l_year - BASE_YEAR) + pi_sakamoto[i_month - 1] + i_day) % WEEK_DAYS);
+	return i_day_of_week == SUNDAY_INDEX || i_day_of_week == SATURDAY_INDEX;
+} // bool CDate::bIsWeekend()
+
 std::string CDate::sToString(char cDateSeparator)
 {
 	std::stringstream c_output;
@@ -178,7 +194,7 @@ int CDate::i_validate_date(int iDay, int iMonth, int iYear)
 		return DateTimeErrorCodes::ERR_INVALID_YEAR;
 	}
 
-	if (iMonth < MIN_MONTH || iMonth > v_leap_year_days_to_month.size() || iMonth > v_normal_year_days_to_month.size())
+	if (iMonth < MIN_MONTH || iMonth >= v_leap_year_days_to_month.size() || iMonth >= v_normal_year_days_to_month.size())
 	{
 		return DateTimeErrorCodes::ERR_INVALID_MONTH;
 	}
